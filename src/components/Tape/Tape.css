@@ -1,0 +1,9 @@
+.tape {
+    border-bottom: 2px solid var(--black);
+    border-top: 2px solid var(--black);
+}
+
+.tape-content {
+    display: flex;
+    align-items: center;
+}
