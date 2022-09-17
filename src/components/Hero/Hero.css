@@ -32,6 +32,14 @@
     box-shadow: 5px 5px var(--black);
 }
 
+.btn.yellow {
+    background-color: var(--yellow);
+}
+
+.btn.beige {
+    background-color: var(--beige);
+}
+
 .playground {
     margin: 50px
 }

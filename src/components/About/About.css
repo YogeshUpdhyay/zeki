@@ -1,9 +1,12 @@
+.about-section {
+    background-color: var(--yellow)
+}
+
 .robin-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: var(--yellow);
     color: var(--black);
-    z-index: -10;
     align-items: center;
     justify-content: center;
 }
@@ -19,37 +22,16 @@
 }
 
 .burst-image {
-    background-image: url(../../static/img/robin.png);
-    width: 400px;
-    height: 400px;
-    position: relative;
     align-self: center;
     justify-self: center;
 }
-
-.burst-image:before, .burst-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 400px;
-    width: 400px;
-    background: inherit;
-}
-
-.burst-image:before {
-    transform: rotate(30deg)
-}
-
-.burst-image:after {
-    transform: rotate(60deg);
-}
-
 
 .circle-image {
   width: 400px;
   height: 400px;
   background-image: url(../../static/img/shweta.png);
+  background-repeat: no-repeat;
+  background-size: 400px 400px;
   border-radius: 50%;
   align-self: center;
   justify-self: center;
