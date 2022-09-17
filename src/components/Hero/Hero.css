@@ -1,6 +1,5 @@
 .hero-container {
     background-color: var(--purple);
-    min-height: 90vh;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -9,15 +8,12 @@
 }
 
 .cta {
-    padding: 100px;
+    margin: 50px;
 }
 
 .text-white {
     color: var(--white);
-}
-
-.display {
-    font-size: 5em;
+    font-family: "MonumentExtended", sans-serif;
 }
 
 .btn {
@@ -37,7 +33,7 @@
 }
 
 .playground {
-    padding: 100px;
+    margin: 50px
 }
 
 .webpage {
@@ -45,7 +41,9 @@
     color: inherit;
     border: 2px solid var(--black);
     border-radius: 5px;
-    height: 80vh;
+    max-height: fit-content;
+    max-width: 680px;
+    box-shadow: 10px 10px var(--black);
 }
 
 .dot {

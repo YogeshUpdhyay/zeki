@@ -1,4 +1,5 @@
 import './Hero.css'
+import Marquee from 'react-fast-marquee'
 
 const Hero = (props) => { 
     return (
@@ -6,7 +7,15 @@ const Hero = (props) => {
             <div className="cta">
                 <h1 className='text-white'>👋 HEY, THERE!</h1>
                 <h1 className="display">TROUBLE MAKING YOUR OWN WEBSITE?</h1>
-                <button className="btn green bs-black">GET HELP</button>
+                <button className="btn green bs-black">
+                    <Marquee
+                        gradient={false}
+                        speed={100}
+                        pauseOnHover={true}
+                    >
+                        •   GET HELP    •   GET HELP    •   GET HELP    
+                    </Marquee>
+                </button>
             </div>
             <div className="playground">
                 <div className="webpage">

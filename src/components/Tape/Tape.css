@@ -6,4 +6,5 @@
 .tape-content {
     display: flex;
     align-items: center;
+    gap: 150px
 }

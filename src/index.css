@@ -1,13 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: "MonumentExtended";
+    src: url(static/fonts/MonumentExtended-Regular.otf);
 }
 
 body {
   margin: 0;
-  font-family: 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: 'Space Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
