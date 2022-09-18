@@ -1,10 +1,9 @@
-import Navbar from '../../components/Navbar/Navbar';
-import Hero from '../../components/Hero/Hero';
-import About from '../../components/About/About';
-import SkewedTape from '../../components/SkewedTape/SkewedTape'
-
-import './Landing.css'
-import Work from '../../components/Work/Work';
+import Navbar from "../../sections/Navbar/Navbar";
+import Hero from "../../sections/Hero/Hero";
+import About from "../../sections/About/About";
+import Work from "../../sections/Work/Work";
+import Reviews from "../../sections/Reviews/Reviews";
+import "./Landing.css";
 
 const Landing = (props) => {
     return (
@@ -12,10 +11,10 @@ const Landing = (props) => {
             <Navbar />
             <Hero />
             <About />
-            
             <Work />
+            <Reviews />
         </>
-    )
-}
+    );
+};
 
-export default Landing
+export default Landing;
