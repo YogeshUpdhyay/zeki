@@ -1,4 +1,4 @@
-import "./ReviewCard.css";
+import styled from "styled-components";
 
 const getStars = (ratings) => {
     let stars = [];
@@ -30,17 +30,56 @@ const getStars = (ratings) => {
     return stars;
 };
 
-const ReviewCard = ({ companyName, ratings, reviewText, country, color }) => {
-    return (
-        <div className="review-card">
-            <div className={`review-card-company ${color}`}>{companyName}</div>
-            <div className="review-card-ratings">{getStars(ratings)}</div>
-            <div className="review-card-text">
-                <p>{reviewText}</p>
-            </div>
-            <div className="review-card-country">{country}</div>
-        </div>
-    );
-};
+const ReviewCard = styled.div`
+    background-color: ${(props) => props.theme.white};
+    max-width: 350px;
+    box-shadow: 10px 10px ${(props) => props.theme.black};
+    border-radius: 10px;
+    border: 2px solid ${(props) => props.theme.black};
+    padding: 20px;
+    display: grid;
+`;
+
+const ReviewCardCompany = styled.div`
+    background-color: ${(props) =>
+        typeof props.theme[props.color] !== "undefined"
+            ? props.theme[props.color]
+            : props.theme.beige};
+    box-shadow: 5px 5px ${(props) => props.theme.black};
+    transform: skewY(${(props) => (props.anticlock ? "2deg" : "-2deg")});
+    border-radius: 10px;
+    border: 2px solid ${(props) => props.theme.black};
+    width: fit-content;
+    padding: 20px 40px 20px 40px;
+    height: 20px;
+    margin-top: -50px;
+`;
+
+const ReviewCardRatings = styled.div`
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    margin-top: 50px;
+`;
+
+const ReviewCardText = styled.p`
+    text-align: left;
+    margin-top: 20px;
+`;
+
+const ReviewCardCountry = styled.div`
+    margin-top: 50px;
+    color: ${(props) => props.theme.black};
+    opacity: 40%;
+    display: flex;
+`;
 
 export default ReviewCard;
+export {
+    ReviewCard,
+    ReviewCardCompany,
+    ReviewCardCountry,
+    ReviewCardRatings,
+    ReviewCardText,
+    getStars,
+};

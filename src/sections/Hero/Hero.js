@@ -1,21 +1,18 @@
-import './Hero.css'
-import Marquee from 'react-fast-marquee'
+import "./Hero.css";
+import Marquee from "react-fast-marquee";
+import Button from "../../components/Button";
 
-const Hero = (props) => { 
+const Hero = (props) => {
     return (
         <div className="hero-container">
             <div className="cta">
-                <h1 className='text-white'>👋 HEY, THERE!</h1>
+                <h1 className="text-white">👋 HEY, THERE!</h1>
                 <h1 className="display">TROUBLE MAKING YOUR OWN WEBSITE?</h1>
-                <button className="btn green bs-black">
-                    <Marquee
-                        gradient={false}
-                        speed={100}
-                        pauseOnHover={true}
-                    >
-                        •   GET HELP    •   GET HELP    •   GET HELP    
+                <Button color="green">
+                    <Marquee gradient={false} speed={100} pauseOnHover={true}>
+                        • GET HELP • GET HELP • GET HELP
                     </Marquee>
-                </button>
+                </Button>
             </div>
             <div className="playground">
                 <div className="webpage">
@@ -31,7 +28,7 @@ const Hero = (props) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Hero
+export default Hero;

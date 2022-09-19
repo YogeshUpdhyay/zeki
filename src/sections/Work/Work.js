@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Tape from "../../components/Tape/Tape";
+import Tape from "../../components/Tape";
 import "./Work.css";
 
 const Work = () => {

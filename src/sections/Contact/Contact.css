@@ -1,0 +1,8 @@
+.contact {
+    background-color: var(--pink);
+    padding: 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+

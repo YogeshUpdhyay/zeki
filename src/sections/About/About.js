@@ -1,4 +1,4 @@
-import Tape from "../../components/Tape/Tape";
+import Tape from "../../components/Tape";
 import SkewedTape from "../../components/SkewedTape/SkewedTape";
 import "./About.css";
 

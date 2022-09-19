@@ -1,42 +1,12 @@
-import Marquee from "react-fast-marquee";
-import "./SkewedTape.css"
+import styled from "styled-components";
+import "./SkewedTape.css";
+import Tape from "../Tape";
 
+const SkewedTape = styled(Tape)`
+    transform-origin: bottom;
+    position: absoulte;
+    top: 0px;
+    right: calc(50%) px;
+`;
 
-const SkewedTape = ({textContent, svgContent, speed}) => {
-    return (
-        <div className="skew-container">
-            <div className="upper-skewed-tape">
-                <Marquee
-                    gradient={false}
-                    speed={speed}
-                >
-                    <div className="tape-content">
-                        <div>{svgContent}</div>
-                        <h1 className="skew-text">{textContent}</h1>
-
-                        <div>{svgContent}</div>
-                        <h1 style={{marginRight: 150}} className="skew-text">{textContent}</h1>
-                    </div>
-                </Marquee>
-            </div>
-            <div className="lower-skewed-tape">
-                <Marquee
-                    gradient={false}
-                    speed={speed}
-                >   
-                    <div className="tape-content">
-                        <div>{svgContent}</div>
-                        <h1 className="skew-text">{textContent}</h1>
-
-                        <div>{svgContent}</div>
-                        <h1 style={{marginRight: 150}} className="skew-text">{textContent}</h1>
-                    </div>
-                </Marquee>
-            </div>
-
-        </div>
-        
-    )
-}
-
-export default SkewedTape
+export default SkewedTape;
