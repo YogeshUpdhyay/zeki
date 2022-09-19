@@ -32,7 +32,8 @@ const getStars = (ratings) => {
 
 const ReviewCard = styled.div`
     background-color: ${(props) => props.theme.white};
-    max-width: 350px;
+    width: 350px;
+    height: 350px
     box-shadow: 10px 10px ${(props) => props.theme.black};
     border-radius: 10px;
     border: 2px solid ${(props) => props.theme.black};
@@ -68,7 +69,6 @@ const ReviewCardText = styled.p`
 `;
 
 const ReviewCardCountry = styled.div`
-    margin-top: 50px;
     color: ${(props) => props.theme.black};
     opacity: 40%;
     display: flex;
