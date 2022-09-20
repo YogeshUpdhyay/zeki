@@ -12,8 +12,8 @@ const Landing = (props) => {
         <>
             <Navbar />
             <Hero />
-            {/* <About /> */}
-            {/* <Work /> */}
+            <About />
+            <Work />
             <Reviews />
             <Contact />
         </>

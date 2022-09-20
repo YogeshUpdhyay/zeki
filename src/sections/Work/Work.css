@@ -1,25 +1,37 @@
+#work {
+    background-color: var(--beige);
+    padding-top: 150px
+}
+
 .work-container {
     background-color: var(--beige);
     margin: auto auto;
     display: grid;
     width: 100%;
+    max-width: 100%;
     height: fit-content;
     justify-content: center;
 }
 
 .tab-group {
+    overflow-x: hidden;
+}
+
+.tab-row {
     display: flex;
-    gap: 50px;
-    padding: auto auto;
-    margin-top: 50px;
+    gap: 20px;
+    padding: 50px 10px;
     justify-content: center;
-    align-items: center;
+}
+
+@media (max-width: 760px) {
+    .tab-row {
+        justify-content: start;
+    }
 }
 
 
 .tab-item {
-    align-items: center;
-    justify-content: center;
     font-size: small;
     padding: 10px;
 }
@@ -30,17 +42,17 @@
     border-radius: 10px;
     padding: 10px;
     box-shadow: 5px 5px var(--black);
+    border: 2px solid var(--black)
 }
 
 .work-group {
-    display: grid;
-    margin-top: 50px;
+    overflow-x: hidden;
 }
 
 .work-group-row {
+    padding: auto auto;
     display: flex;
     gap: 20px;
-    margin-top: 20px
 }
 
 .work-group-items {

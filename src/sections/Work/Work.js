@@ -1,14 +1,32 @@
-import { useState } from "react";
 import Tape from "../../components/Tape";
 import "./Work.css";
+import WorkCard from "../../components/WorkCard";
+import Button from "../../components/Button";
+
+import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 const Work = () => {
+    const [tabGroupWidth, setTabGroupWidth] = useState(0);
+    const [workGroupWidth, setWorkGroupWidth] = useState(0);
     const [activeTab, setActiveTab] = useState(0);
+    const tabRef = useRef();
+    const workGroupRef = useRef();
+
+    useEffect(() => {
+        setTabGroupWidth(
+            tabRef.current.scrollWidth - tabRef.current.offsetWidth
+        );
+
+        setWorkGroupWidth(
+            workGroupRef.current.scrollWidth - workGroupRef.current.offsetWidth
+        );
+    }, []);
 
     return (
-        <section id="milestones">
+        <section id="work">
             <Tape
-                textContent={"OUR WORK"}
+                textContent={<h1 className="display">OUR WORK</h1>}
                 svgContent={
                     <svg
                         width="32"
@@ -24,102 +42,121 @@ const Work = () => {
                         />
                     </svg>
                 }
+                gap={50}
+                repeat={4}
+                speed={200}
+                color="black"
             />
             <div className="work-container">
-                <div className="tab-group">
-                    <div
-                        onClick={(e) =>
-                            setActiveTab(
-                                parseInt(e.target.getAttribute("index"))
-                            )
-                        }
-                        index={0}
-                        className={
-                            activeTab === 0 ? "tab-item active" : "tab-item"
-                        }
+                <motion.div ref={tabRef} className="tab-group">
+                    <motion.div
+                        drag="x"
+                        dragConstraints={{ right: 0, left: -tabGroupWidth }}
+                        className="tab-row"
                     >
-                        PROJECTS - ALL PROJECTS
-                    </div>
-                    <div
-                        onClick={(e) =>
-                            setActiveTab(
-                                parseInt(e.target.getAttribute("index"))
-                            )
-                        }
-                        index={1}
-                        className={
-                            activeTab === 1 ? "tab-item active" : "tab-item"
-                        }
+                        <div
+                            onClick={(e) =>
+                                setActiveTab(
+                                    parseInt(e.target.getAttribute("index"))
+                                )
+                            }
+                            index={0}
+                            className={
+                                activeTab === 0 ? "tab-item active" : "tab-item"
+                            }
+                        >
+                            PROJECTS - ALL PROJECTS
+                        </div>
+                        <div
+                            onClick={(e) =>
+                                setActiveTab(
+                                    parseInt(e.target.getAttribute("index"))
+                                )
+                            }
+                            index={1}
+                            className={
+                                activeTab === 1 ? "tab-item active" : "tab-item"
+                            }
+                        >
+                            NFTs
+                        </div>
+                        <div
+                            onClick={(e) =>
+                                setActiveTab(
+                                    parseInt(e.target.getAttribute("index"))
+                                )
+                            }
+                            index={2}
+                            className={
+                                activeTab === 2 ? "tab-item active" : "tab-item"
+                            }
+                        >
+                            E-COMMERCE
+                        </div>
+                        <div
+                            onClick={(e) =>
+                                setActiveTab(
+                                    parseInt(e.target.getAttribute("index"))
+                                )
+                            }
+                            index={3}
+                            className={
+                                activeTab === 3 ? "tab-item active" : "tab-item"
+                            }
+                        >
+                            DASHBOARDS
+                        </div>
+                        <div
+                            onClick={(e) =>
+                                setActiveTab(
+                                    parseInt(e.target.getAttribute("index"))
+                                )
+                            }
+                            index={4}
+                            className={
+                                activeTab === 4 ? "tab-item active" : "tab-item"
+                            }
+                        >
+                            GAMES
+                        </div>
+                        <div
+                            onClick={(e) =>
+                                setActiveTab(
+                                    parseInt(e.target.getAttribute("index"))
+                                )
+                            }
+                            index={5}
+                            className={
+                                activeTab === 5 ? "tab-item active" : "tab-item"
+                            }
+                        >
+                            MOBILE INTERFACES
+                        </div>
+                    </motion.div>
+                </motion.div>
+
+                <motion.div ref={workGroupRef} className="work-group">
+                    <motion.div
+                        drag="x"
+                        dragConstraints={{ right: 0, left: -workGroupWidth }}
+                        className="work-group-row"
                     >
-                        NFTs
-                    </div>
-                    <div
-                        onClick={(e) =>
-                            setActiveTab(
-                                parseInt(e.target.getAttribute("index"))
-                            )
-                        }
-                        index={2}
-                        className={
-                            activeTab === 2 ? "tab-item active" : "tab-item"
-                        }
+                        <WorkCard></WorkCard>
+                        <WorkCard></WorkCard>
+                        <WorkCard></WorkCard>
+                    </motion.div>
+                    <motion.div
+                        drag="x"
+                        dragConstraints={{ right: 0, left: -workGroupWidth }}
+                        className="work-group-row"
                     >
-                        E-COMMERCE
-                    </div>
-                    <div
-                        onClick={(e) =>
-                            setActiveTab(
-                                parseInt(e.target.getAttribute("index"))
-                            )
-                        }
-                        index={3}
-                        className={
-                            activeTab === 3 ? "tab-item active" : "tab-item"
-                        }
-                    >
-                        DASHBOARDS
-                    </div>
-                    <div
-                        onClick={(e) =>
-                            setActiveTab(
-                                parseInt(e.target.getAttribute("index"))
-                            )
-                        }
-                        index={4}
-                        className={
-                            activeTab === 4 ? "tab-item active" : "tab-item"
-                        }
-                    >
-                        GAMES
-                    </div>
-                    <div
-                        onClick={(e) =>
-                            setActiveTab(
-                                parseInt(e.target.getAttribute("index"))
-                            )
-                        }
-                        index={5}
-                        className={
-                            activeTab === 5 ? "tab-item active" : "tab-item"
-                        }
-                    >
-                        MOBILE INTERFACES
-                    </div>
-                </div>
-                <div className="work-group">
-                    <div className="work-group-row">
-                        <div className="work-group-items">Item 1</div>
-                        <div className="work-group-items"></div>
-                        <div className="work-group-items"></div>
-                    </div>
-                    <div className="work-group-row">
-                        <div className="work-group-items"></div>
-                        <div className="work-group-items"></div>
-                        <div className="work-group-items"></div>
-                    </div>
-                </div>
+                        <WorkCard></WorkCard>
+                        <WorkCard></WorkCard>
+                        <WorkCard></WorkCard>
+                    </motion.div>
+                </motion.div>
                 <div className="work-button">
-                    <button className="btn beige bs-black">LOAD MORE</button>
+                    <Button color="beige">LOAD MORE</Button>
                 </div>
             </div>
         </section>

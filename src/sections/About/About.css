@@ -1,22 +1,8 @@
 .about-section {
-    background-color: var(--yellow)
-}
-
-.robin-section {
+    background-color: var(--yellow);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: var(--yellow);
     color: var(--black);
-    align-items: center;
-    justify-content: center;
-}
-
-.shweta-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: var(--yellow);
-    color: var(--black);
-    padding: auto auto;
     align-items: center;
     justify-content: center;
 }
@@ -27,17 +13,22 @@
 }
 
 .circle-image {
-  width: 400px;
-  height: 400px;
-  background-image: url(../../static/img/shweta.png);
-  background-repeat: no-repeat;
-  background-size: 400px 400px;
-  border-radius: 50%;
-  align-self: center;
-  justify-self: center;
+    width: 350px;
+    height: 350px;
+    background-image: url(../../static/img/shweta.png);
+    background-repeat: no-repeat;
+    background-size: 400px 400px;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
 }
 
 .about-text {
     font-family: "MonumentExtended", sans-serif;
-    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .about-section{
+        grid-template-columns: 1fr;
+    }
 }

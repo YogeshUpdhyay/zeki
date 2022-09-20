@@ -7,11 +7,14 @@ import {
     getStars,
 } from "../../components/ReviewCard";
 import SkewedTape from "../../components/SkewedTape";
-
+import Button from "../../components/Button";
+import Marquee from "react-fast-marquee";
 import "./Reviews.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Reviews = (props) => {
+    const [reviewsWidth, setReviewsWidth] = useState(0);
     const [reviews, setReviews] = useState([
         {
             companyName: "SLASHERGENO",
@@ -69,6 +72,14 @@ const Reviews = (props) => {
         },
     ]);
 
+    const reviewsRef = useRef();
+
+    useEffect(() => {
+        setReviewsWidth(
+            reviewsRef.current.scrollWidth - reviewsRef.current.offsetWidth
+        );
+    });
+
     return (
         <>
             <div className="review-container">
@@ -109,23 +120,42 @@ const Reviews = (props) => {
                     isFirstUpper={true}
                     isSecondUpper={false}
                 />
-
-                <div className="reviews">
-                    {reviews &&
-                        reviews.map((review) => (
-                            <ReviewCard>
-                                <ReviewCardCompany>
-                                    {review.companyName}
-                                </ReviewCardCompany>
-                                <ReviewCardRatings>
-                                    {getStars(review.ratings)}
-                                </ReviewCardRatings>
-                                <ReviewCardText>{review.text}</ReviewCardText>
-                                <ReviewCardCountry>
-                                    {review.country}
-                                </ReviewCardCountry>
-                            </ReviewCard>
-                        ))}
+                <motion.div ref={reviewsRef} className="reviews">
+                    <motion.div
+                        drag="x"
+                        dragConstraints={{ right: 0, left: -reviewsWidth }}
+                        className="inner-reviews"
+                    >
+                        {reviews &&
+                            reviews.map((review) => (
+                                <ReviewCard>
+                                    <ReviewCardCompany>
+                                        {review.companyName}
+                                    </ReviewCardCompany>
+                                    <ReviewCardRatings>
+                                        {getStars(review.ratings)}
+                                    </ReviewCardRatings>
+                                    <ReviewCardText>
+                                        {review.text}
+                                    </ReviewCardText>
+                                    <ReviewCardCountry>
+                                        {review.country}
+                                    </ReviewCardCountry>
+                                </ReviewCard>
+                            ))}
+                    </motion.div>
+                </motion.div>
+                <div className="reviews-button">
+                    <Button color="yellow">
+                        <Marquee
+                            gradient={false}
+                            speed={100}
+                            pauseOnHover={true}
+                        >
+                            • VIEW ON FIVERR • VIEW ON FIVERR • VIEW ON FIVERR •
+                            VIEW ON FIVERR
+                        </Marquee>
+                    </Button>
                 </div>
             </div>
         </>

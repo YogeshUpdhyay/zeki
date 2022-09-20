@@ -1,31 +1,24 @@
 .review-container {
     background-color: var(--green);
-}
-
-.cross-tape {
-    position: relative;
-}
-
-.cross-tape-first {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.cross-tape-second {
-    width: 100%;
-    position: absolute;
-    top: 20px;
-    left: 0;
+    width: 100%
 }
 
 .reviews {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
     overflow-x: hidden;
-    padding: 150px 20px 50px 20px;
+    padding-top: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 50px;
 }
 
+.inner-reviews {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.reviews-button {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
