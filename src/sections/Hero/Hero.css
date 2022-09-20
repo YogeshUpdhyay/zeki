@@ -47,8 +47,8 @@
     color: inherit;
     border: 2px solid var(--black);
     border-radius: 5px;
-    max-height: fit-content;
-    max-width: 680px;
+    height: 600px;
+    width: 480px;
     box-shadow: 10px 10px var(--black);
     padding: 20px;
 }
@@ -76,8 +76,28 @@
     padding: 20px;
 }
 
+.play-area {
+    position: absolute;
+}
+
+.top-play-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bottom-play-area {
+    display: flex;
+}
+
+
 @media (max-width: 768px) {
     .hero-container {
         grid-template-columns: 1fr;
+    }
+
+    .webpage {
+        width: 90%;
+        height: 600px;
+        padding: 10px;
     }
 }
