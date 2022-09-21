@@ -3,6 +3,16 @@ import Marquee from "react-fast-marquee";
 import Button from "../../components/Button";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import {
+    paragraph,
+    headline,
+    button,
+    image,
+    greenloremipsum,
+    yellowloremipsum,
+    pinkloremipsum,
+} from "../../images";
+import { useEffect, useRef, useState } from "react";
 
 const PinkLoremIpsum = ({ height, width }) => {
     return (
@@ -316,7 +326,7 @@ const ButtonSvg = () => {
     );
 };
 
-const PlayItem = styled(motion.div)`
+const PlayItem = styled.div`
     position: absolute;
     top: ${(props) => props.top}px;
     bottom: ${(props) => props.bottom}px;
@@ -324,7 +334,112 @@ const PlayItem = styled(motion.div)`
     left: ${(props) => props.left}px;
 `;
 
+const DesktopPlayArea = () => {
+    const dragConstraints = {
+        right: 400,
+        left: -400,
+        top: -300,
+        bottom: 300,
+    };
+
+    return (
+        <motion.div className="play-area">
+            <PlayItem top={0} left={100}>
+                <motion.img
+                    drag
+                    dragConstraints={dragConstraints}
+                    src={headline}
+                    alt="headline"
+                />
+            </PlayItem>
+            <PlayItem top={100} left={60}>
+                <motion.img
+                    drag
+                    dragConstraints={dragConstraints}
+                    src={paragraph}
+                    alt="paragraph"
+                />
+            </PlayItem>
+            <PlayItem top={200} left={10}>
+                <motion.img
+                    drag
+                    dragConstraints={dragConstraints}
+                    src={button}
+                    alt="button"
+                />
+            </PlayItem>
+            <PlayItem top={0} left={400}>
+                <motion.img
+                    drag
+                    dragConstraints={dragConstraints}
+                    src={image}
+                    alt="imagedrag"
+                />
+            </PlayItem>
+            <PlayItem top={300} left={10}>
+                <motion.img
+                    drag
+                    dragConstraints={dragConstraints}
+                    src={greenloremipsum}
+                    alt="greenloremipsum"
+                />
+            </PlayItem>
+            <PlayItem top={300} left={200}>
+                <motion.img
+                    drag
+                    dragConstraints={dragConstraints}
+                    src={pinkloremipsum}
+                    alt="pinkloremipsum"
+                />
+            </PlayItem>
+            <PlayItem top={300} left={450}>
+                <motion.img
+                    drag
+                    dragConstraints={dragConstraints}
+                    src={yellowloremipsum}
+                    alt="yellowloremipsum"
+                />
+            </PlayItem>
+        </motion.div>
+    );
+};
+
+const MobilePlayArea = () => {
+    return (
+        <div className="play-area">
+            <div className="top-play-area">
+                <div className="top-play-area-cta">
+                    <img src={headline} alt="" />
+                    <img src={paragraph} alt="" />
+                    <img src={button} alt="" />
+                </div>
+                <div>
+                    <img className="top-play-area-image" src={image} alt="" />
+                </div>
+            </div>
+            <div className="bottom-play-area">
+                <img src={yellowloremipsum} alt="" />
+                <img src={greenloremipsum} alt="" />
+                <img src={pinkloremipsum} alt="" />
+            </div>
+        </div>
+    );
+};
+
 const Hero = (props) => {
+    // const elementRef = useRef();
+    const [match, setMatch] = useState(
+        window.matchMedia("(min-width: 768px)").matches
+    );
+
+    useEffect(() => {
+        window
+            .matchMedia("(min-width: 768px)")
+            .addEventListener("change", (e) => setMatch(e.matches));
+
+        // console.log(elementRef.current.getBoundingClientRect());
+    });
+
     return (
         <div className="hero-container">
             <div className="cta">
@@ -346,29 +461,8 @@ const Hero = (props) => {
                     <div className="url-bar">
                         www.zeki.in | click and drag to make your own website
                     </div>
-                    <motion.div className="play-area">
-                        <PlayItem top={0} left={100}>
-                            <Headline />
-                        </PlayItem>
-                        <PlayItem top={40} left={60}>
-                            <Paragarph />
-                        </PlayItem>
-                        <PlayItem top={60} left={10}>
-                            <ButtonSvg />
-                        </PlayItem>
-                        <PlayItem top={300}>
-                            <Image />
-                        </PlayItem>
-                        <PlayItem top={300} left={100}>
-                            <GreenLoremIpsum />
-                        </PlayItem>
-                        <PlayItem top={150}>
-                            <YellowLoremIpsum />
-                        </PlayItem>
-                        <PlayItem top={150} left={100}>
-                            <PinkLoremIpsum />
-                        </PlayItem>
-                    </motion.div>
+                    {match && <DesktopPlayArea />}
+                    {!match && <MobilePlayArea />}
                 </div>
             </div>
         </div>

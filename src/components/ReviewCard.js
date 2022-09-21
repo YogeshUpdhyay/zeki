@@ -32,7 +32,7 @@ const getStars = (ratings) => {
 
 const ReviewCard = styled.div`
     background-color: ${(props) => props.theme.white};
-    min-width: 350px;
+    min-width: 300px;
     min-height: 350px;
     box-shadow: 10px 10px ${(props) => props.theme.black};
     border-radius: 10px;

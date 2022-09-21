@@ -49,6 +49,7 @@
     border-radius: 5px;
     height: 600px;
     width: 480px;
+    max-width: 600px;
     box-shadow: 10px 10px var(--black);
     padding: 20px;
 }
@@ -77,16 +78,35 @@
 }
 
 .play-area {
-    position: absolute;
+    position: relative;
 }
 
 .top-play-area {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+}
+
+.top-play-area > * {
+    width: 50%;
+    height: 100%;
+}
+
+.top-play-area-cta > * {
+    width: 100%;
+    height: 30%;
+}
+
+.top-play-area-image {
+    width: 100%;
+    height: 100%;
 }
 
 .bottom-play-area {
     display: flex;
+}
+
+.bottom-play-area > * {
+    width: 30%;
+    height: 100%;
 }
 
 
@@ -97,7 +117,7 @@
 
     .webpage {
         width: 90%;
-        height: 600px;
+        height: fit-content;
         padding: 10px;
     }
 }

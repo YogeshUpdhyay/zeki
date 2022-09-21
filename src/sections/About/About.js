@@ -2,8 +2,7 @@ import Tape from "../../components/Tape";
 import SkewedTape from "../../components/SkewedTape";
 import "./About.css";
 
-import robinImage from "../../static/img/robin.png";
-import shwetaImage from "../../static/img/shweta.png";
+import { robinImage, shwetaImage } from "../../images";
 
 const About = (props) => {
     return (
