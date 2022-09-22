@@ -5,6 +5,7 @@ import Work from "../../sections/Work/Work";
 import Reviews from "../../sections/Reviews/Reviews";
 import "./Landing.css";
 import Contact from "../../sections/Contact/Contact";
+import Footer from "../../sections/Footer/Footer";
 import Button from "../../components/Button";
 
 const Landing = (props) => {
@@ -16,6 +17,7 @@ const Landing = (props) => {
             <Work />
             <Reviews />
             <Contact />
+            <Footer />
         </>
     );
 };
