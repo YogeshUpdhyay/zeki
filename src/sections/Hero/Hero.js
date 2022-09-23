@@ -327,7 +327,6 @@ const ButtonSvg = () => {
 };
 
 const PlayItem = styled.div`
-    position: absolute;
     top: ${(props) => props.top}px;
     bottom: ${(props) => props.bottom}px;
     right: ${(props) => props.right}px;
@@ -344,62 +343,63 @@ const DesktopPlayArea = () => {
 
     return (
         <motion.div className="play-area">
-            <PlayItem top={0} left={100}>
-                <motion.img
-                    drag
-                    dragConstraints={dragConstraints}
-                    src={headline}
-                    alt="headline"
-                />
-            </PlayItem>
-            <PlayItem top={100} left={60}>
-                <motion.img
-                    drag
-                    dragConstraints={dragConstraints}
-                    src={paragraph}
-                    alt="paragraph"
-                />
-            </PlayItem>
-            <PlayItem top={200} left={10}>
-                <motion.img
-                    drag
-                    dragConstraints={dragConstraints}
-                    src={button}
-                    alt="button"
-                />
-            </PlayItem>
-            <PlayItem top={0} left={400}>
-                <motion.img
-                    drag
-                    dragConstraints={dragConstraints}
-                    src={image}
-                    alt="imagedrag"
-                />
-            </PlayItem>
-            <PlayItem top={300} left={10}>
+            <div className="top-play-area">
+                <div className="top-play-area-cta">
+                    <motion.img
+                        drag
+                        dragConstraints={dragConstraints}
+                        src={headline}
+                        alt="headline"
+                    />
+                    <motion.img
+                        drag
+                        dragConstraints={dragConstraints}
+                        src={paragraph}
+                        alt="paragraph"
+                    />
+                    <motion.img
+                        drag
+                        dragConstraints={dragConstraints}
+                        src={button}
+                        alt="button"
+                    />
+                </div>
+                <div>
+                    <motion.img
+                        drag
+                        dragConstraints={dragConstraints}
+                        src={image}
+                        alt="imagedrag"
+                    />
+                </div>
+            </div>
+            <div className="bottom-play-area">
                 <motion.img
                     drag
                     dragConstraints={dragConstraints}
                     src={greenloremipsum}
                     alt="greenloremipsum"
                 />
-            </PlayItem>
-            <PlayItem top={300} left={200}>
                 <motion.img
                     drag
                     dragConstraints={dragConstraints}
                     src={pinkloremipsum}
                     alt="pinkloremipsum"
                 />
-            </PlayItem>
-            <PlayItem top={300} left={450}>
                 <motion.img
                     drag
                     dragConstraints={dragConstraints}
                     src={yellowloremipsum}
                     alt="yellowloremipsum"
                 />
-            </PlayItem>
+            </div>
+            {/* <PlayItem top={0} left={100}></PlayItem>
+            <PlayItem top={100} left={60}></PlayItem>
+            <PlayItem top={200} left={10}></PlayItem>
+            <PlayItem top={0} left={400}></PlayItem>
+            <PlayItem top={300} left={10}></PlayItem>
+            <PlayItem top={300} left={200}></PlayItem>
+            <PlayItem top={300} left={450}></PlayItem> */}
         </motion.div>
     );
 };
@@ -447,7 +447,7 @@ const Hero = (props) => {
                 <h1 className="display">TROUBLE MAKING YOUR OWN WEBSITE?</h1>
                 <Button color="green">
                     <Marquee gradient={false} speed={100} pauseOnHover={true}>
-                        • GET HELP • GET HELP • GET HELP
+                        <p>• GET HELP • GET HELP • GET HELP</p>
                     </Marquee>
                 </Button>
             </div>

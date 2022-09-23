@@ -127,9 +127,13 @@ const Reviews = (props) => {
                         className="inner-reviews"
                     >
                         {reviews &&
-                            reviews.map((review) => (
+                            reviews.map((review, index) => (
                                 <ReviewCard>
-                                    <ReviewCardCompany>
+                                    <ReviewCardCompany
+                                        anticlock={
+                                            (index + 1) % 2 === 0 ? true : false
+                                        }
+                                    >
                                         {review.companyName}
                                     </ReviewCardCompany>
                                     <ReviewCardRatings>
