@@ -427,27 +427,139 @@ const MobilePlayArea = () => {
 };
 
 const Hero = (props) => {
-    // const elementRef = useRef();
-    const [match, setMatch] = useState(
-        window.matchMedia("(min-width: 768px)").matches
-    );
+    const parentDivref = useRef();
+    const headlineRef = useRef();
+    const paragraphRef = useRef();
+    const buttonRef = useRef();
+    const imageRef = useRef();
+    const greenlpRef = useRef();
+    const yellowlpRef = useRef();
+    const pinklpRef = useRef();
+
+    const [headlineConstraints, setHeadlineConstraints] = useState({});
+    const [paragraphConstraints, setParagraphConstraints] = useState({});
+    const [buttonConstraints, setButtonConstraints] = useState({});
+    const [imageConstraints, setImageConstraints] = useState({});
+    const [greenlpConstraints, setGreenlpConstraints] = useState({});
+    const [yellowlpConstraints, setYellowlpConstraints] = useState({});
+    const [pinklpConstraints, setPinklpConstraints] = useState({});
+
+    // const [match, setMatch] = useState(
+    //     window.matchMedia("(min-width: 768px)").matches
+    // );
 
     useEffect(() => {
-        window
-            .matchMedia("(min-width: 768px)")
-            .addEventListener("change", (e) => setMatch(e.matches));
-
+        // window
+        //     .matchMedia("(min-width: 768px)")
+        //     .addEventListener("change", (e) => setMatch(e.matches));
         // console.log(elementRef.current.getBoundingClientRect());
-    });
+
+        const parentPosition = parentDivref.current.getBoundingClientRect();
+        const headlinePosition = headlineRef.current.getBoundingClientRect();
+        const paragraphPosition = paragraphRef.current.getBoundingClientRect();
+        const buttonPosition = buttonRef.current.getBoundingClientRect();
+        const imagePosition = imageRef.current.getBoundingClientRect();
+        const greenlpPosition = greenlpRef.current.getBoundingClientRect();
+        const yellowlpPosition = yellowlpRef.current.getBoundingClientRect();
+        const pinklpPosition = pinklpRef.current.getBoundingClientRect();
+        console.log(pinklpPosition);
+
+        setHeadlineConstraints({
+            left: -headlinePosition.x,
+            right:
+                parentPosition.width -
+                (headlinePosition.x +
+                    parentPosition.x +
+                    headlinePosition.width),
+            top: (headlinePosition.y - parentPosition.y) * -1,
+            bottom:
+                parentPosition.height - (headlinePosition.y - parentPosition.y),
+        });
+
+        setParagraphConstraints({
+            left: -paragraphPosition.x,
+            right:
+                parentPosition.width -
+                paragraphPosition.x -
+                parentPosition.x -
+                paragraphPosition.width,
+            top: (paragraphPosition.y - parentPosition.y) * -1,
+            bottom:
+                parentPosition.height -
+                (paragraphPosition.y - parentPosition.y),
+        });
+
+        setButtonConstraints({
+            left: -buttonPosition.x,
+            right:
+                parentPosition.width -
+                buttonPosition.x -
+                parentPosition.x -
+                buttonPosition.width,
+            top: (buttonPosition.y - parentPosition.y) * -1,
+            bottom:
+                parentPosition.height - (buttonPosition.y - parentPosition.y),
+        });
+
+        setImageConstraints({
+            left: -imagePosition.x,
+            right:
+                parentPosition.width -
+                imagePosition.x -
+                parentPosition.x -
+                imagePosition.width,
+            top: (imagePosition.y - parentPosition.y) * -1,
+            bottom:
+                parentPosition.height - (imagePosition.y - parentPosition.y),
+        });
+
+        setGreenlpConstraints({
+            left: -greenlpPosition.x,
+            right:
+                parentPosition.width -
+                greenlpPosition.x -
+                parentPosition.x -
+                greenlpPosition.width,
+            top: (greenlpPosition.y - parentPosition.y) * -1,
+            bottom:
+                parentPosition.height - (greenlpPosition.y - parentPosition.y),
+        });
+
+        setPinklpConstraints({
+            left: -pinklpPosition.x,
+            right:
+                parentPosition.width -
+                pinklpPosition.x -
+                parentPosition.x -
+                pinklpPosition.width,
+            top: (pinklpPosition.y - parentPosition.y) * -1,
+            bottom:
+                parentPosition.height - (pinklpPosition.y - parentPosition.y),
+        });
+
+        setYellowlpConstraints({
+            left: -yellowlpPosition.x,
+            right:
+                parentPosition.width -
+                yellowlpPosition.x -
+                parentPosition.x -
+                yellowlpPosition.width,
+            top: (yellowlpPosition.y - parentPosition.y) * -1,
+            bottom:
+                parentPosition.height - (yellowlpPosition.y - parentPosition.y),
+        });
+    }, []);
 
     return (
-        <div className="hero-container">
+        <div ref={parentDivref} className="hero-container">
             <div className="cta">
-                <h1 className="text-white">👋 HEY, THERE!</h1>
-                <h1 className="display">TROUBLE MAKING YOUR OWN WEBSITE?</h1>
+                <h3 className="text-white">👋 HEY, THERE!</h3>
+                <h1 className="display">
+                    TROUBLE <br /> MAKING <br /> YOUR OWN <br /> WEBSITE?
+                </h1>
                 <Button color="green">
-                    <Marquee gradient={false} speed={100} pauseOnHover={true}>
-                        <p>• GET HELP • GET HELP • GET HELP</p>
+                    <Marquee gradient={false} speed={50} pauseOnHover={true}>
+                        •&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;
                     </Marquee>
                 </Button>
             </div>
@@ -461,8 +573,66 @@ const Hero = (props) => {
                     <div className="url-bar">
                         www.zeki.in | click and drag to make your own website
                     </div>
-                    {match && <DesktopPlayArea />}
-                    {!match && <MobilePlayArea />}
+                    <div className="play-area">
+                        <div className="top-play-area">
+                            <div className="top-play-area-cta">
+                                <motion.img
+                                    drag
+                                    dragConstraints={headlineConstraints}
+                                    ref={headlineRef}
+                                    src={headline}
+                                    alt=""
+                                />
+                                <motion.img
+                                    drag
+                                    dragConstraints={paragraphConstraints}
+                                    ref={paragraphRef}
+                                    src={paragraph}
+                                    alt=""
+                                />
+                                <motion.img
+                                    drag
+                                    dragConstraints={buttonConstraints}
+                                    ref={buttonRef}
+                                    src={button}
+                                    alt=""
+                                />
+                            </div>
+                            <div>
+                                <motion.img
+                                    drag
+                                    dragConstraints={imageConstraints}
+                                    ref={imageRef}
+                                    className="top-play-area-image"
+                                    src={image}
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                        <div className="bottom-play-area">
+                            <motion.img
+                                drag
+                                dragConstraints={yellowlpConstraints}
+                                ref={yellowlpRef}
+                                src={yellowloremipsum}
+                                alt=""
+                            />
+                            <motion.img
+                                drag
+                                dragConstraints={greenlpConstraints}
+                                ref={greenlpRef}
+                                src={greenloremipsum}
+                                alt=""
+                            />
+                            <motion.img
+                                drag
+                                dragConstraints={pinklpConstraints}
+                                ref={pinklpRef}
+                                src={pinkloremipsum}
+                                alt=""
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

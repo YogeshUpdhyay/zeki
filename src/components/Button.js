@@ -13,6 +13,8 @@ const Button = styled.button`
     box-shadow: 5px 5px ${(props) => props.theme.black};
     border: 2px solid ${(props) => props.theme.black};
     padding: 10px;
+    align-items: center;
+    justify-content: center;
 `;
 
 export default Button;

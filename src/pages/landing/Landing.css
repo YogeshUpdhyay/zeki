@@ -1,8 +1,15 @@
 .display {
-    font-size: 3em;
+    font-size: 5em;
     font-family: "MonumentExtended", sans-serif;
 }
 
 .highlight-text {
     font-family: "MonumentExtended", sans-serif;
+}
+
+@media (max-width: 1200px) {
+    .display {
+        font-size: 3em;
+        font-family: "MonumentExtended", sans-serif;
+    }
 }
