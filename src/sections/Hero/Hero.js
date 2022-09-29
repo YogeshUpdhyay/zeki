@@ -559,7 +559,9 @@ const Hero = (props) => {
                 </h1>
                 <Button color="green">
                     <Marquee gradient={false} speed={50} pauseOnHover={true}>
-                        •&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;
+                        <h4 className="buttonText">
+                            •&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;
+                        </h4>
                     </Marquee>
                 </Button>
             </div>
