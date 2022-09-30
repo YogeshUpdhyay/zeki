@@ -1,15 +1,20 @@
 .about-section {
     background-color: var(--yellow);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     color: var(--black);
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .burst-image {
-    align-self: center;
-    justify-self: center;
+    position: relative;
+    left: 0;
+    top: -80px;
+    height: 500;
+    width: 500;
 }
 
 .circle-image {
@@ -27,8 +32,3 @@
     font-family: "MonumentExtended", sans-serif;
 }
 
-@media (max-width: 760px) {
-    .about-section{
-        grid-template-columns: 1fr;
-    }
-}

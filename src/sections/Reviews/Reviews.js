@@ -112,7 +112,7 @@ const Reviews = (props) => {
                     }
                     gap={50}
                     repeat={10}
-                    speed={200}
+                    speed={50}
                     backgroundColor="black"
                     color="white"
                     rotateFirstBy={2}
@@ -134,7 +134,9 @@ const Reviews = (props) => {
                                             (index + 1) % 2 === 0 ? true : false
                                         }
                                     >
-                                        {review.companyName}
+                                        <p className="buttonText">
+                                            {review.companyName}
+                                        </p>
                                     </ReviewCardCompany>
                                     <ReviewCardRatings>
                                         {getStars(review.ratings)}
@@ -153,11 +155,13 @@ const Reviews = (props) => {
                     <Button color="yellow">
                         <Marquee
                             gradient={false}
-                            speed={100}
+                            speed={50}
                             pauseOnHover={true}
                         >
-                            • VIEW ON FIVERR • VIEW ON FIVERR • VIEW ON FIVERR •
-                            VIEW ON FIVERR
+                            <h4 className="buttonText">
+                                • VIEW ON FIVERR • VIEW ON FIVERR • VIEW ON
+                                FIVERR • VIEW ON FIVERR
+                            </h4>
                         </Marquee>
                     </Button>
                 </div>

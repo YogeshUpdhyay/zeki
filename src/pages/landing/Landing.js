@@ -16,7 +16,7 @@ const Landing = (props) => {
             {/* <About /> */}
             <Work />
             <Reviews />
-            {/* <Contact /> */}
+            <Contact />
             <Footer />
         </>
     );

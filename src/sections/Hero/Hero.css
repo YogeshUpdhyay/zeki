@@ -9,13 +9,6 @@
     padding-bottom: 50px;
 }
 
-.buttonText {
-    margin: 0;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-}
-
-
 .text-white {
     color: var(--white);
     font-family: "MonumentExtended", sans-serif;

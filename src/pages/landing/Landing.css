@@ -7,6 +7,12 @@
     font-family: "MonumentExtended", sans-serif;
 }
 
+.buttonText {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+}
+
 @media (max-width: 1200px) {
     .display {
         font-size: 3em;

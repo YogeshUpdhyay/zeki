@@ -119,7 +119,7 @@ const Footer = (props) => {
             <WhiteLogo />
             <FooterContent>
                 <FooterItem
-                    height={300}
+                    height={200}
                     width={300}
                     backgroudColor="black"
                     borderThickness={2}
@@ -144,7 +144,7 @@ const Footer = (props) => {
                     <h3>+91 7738 617 600</h3>
                 </FooterItem>
                 <FooterItem
-                    height={300}
+                    height={200}
                     width={300}
                     backgroudColor="black"
                     borderThickness={2}

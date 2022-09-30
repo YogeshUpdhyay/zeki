@@ -1,8 +1,64 @@
 .contact {
     background-color: var(--pink);
-    padding: 20px;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 20px 400px 20px;
+    position: relative;
+    z-index: -2;
 }
 
+.envlope {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    width: 800px;
+}
+
+.submit-button {
+    margin-bottom: 50px;
+}
+.contact-form {
+    border: 2px solid var(--black);
+    border-bottom: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;;
+    border-radius: 10px;
+    background-color: var(--white);
+    padding: 20px;
+    margin: auto
+}
+
+.form-element > label {
+    display: block;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+.form-element > input {
+    width: 100%;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: "Space Grotesk", sans-serif;
+    height: 40px;
+}
+
+.form-element > textarea {
+    width: 100%;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+
+@media (max-width: 768px) {
+
+}
+
+@media (min-width: 1200px) {
+    .contact-form {
+        width: 600px;
+    }
+}

@@ -1,17 +1,16 @@
-
-
 .work-container {
     background-color: var(--beige);
     margin: auto auto;
     display: grid;
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
     height: fit-content;
     justify-content: center;
 }
 
 .tab-group {
-    overflow-x: hidden;
+    justify-content: center;
+    display: flex;
 }
 
 .tab-row {
@@ -21,12 +20,65 @@
     justify-content: center;
 }
 
-@media (max-width: 760px) {
+.dropdown {
+    background-color: var(--green);
+    color: var(--black);
+    padding: 10px;
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    box-shadow: 5px 5px var(--black);
+    margin: 20px;
+    width: 80%;
+}
+
+.Dropdown-control.dropdown-control {
+    background-color: var(--green);
+    border: none;
+    color: var(--black);
+    padding: 5px;
+    font-size: small;
+    align-items: center;
+    display: flex;
+}
+
+.Dropdown-arrow.dropdown-arrow {
+    border-color: var(--black) transparent transparent;
+    border-style: solid;
+    border-width: 6px 6px 0;
+    content: ' ';
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 0;
+}
+
+.Dropdown-placeholder.dropdown-placeholder {
+    margin-right: auto;
+}
+
+.Dropdown-menu.dropdown-menu {
+    background-color: var(--white);
+    border-radius: 10px;
+    border: 2px solid var(--black);
+    box-shadow: 5px 5px var(--black);
+    font-size: small;
+    margin: 5px auto 0px auto;
+    top: 100%;
+}
+
+@media (max-width: 1200px) {
     .tab-row {
-        justify-content: start;
+        display: none;
     }
 }
 
+@media (min-width: 1200px) {
+    .dropdown {
+        display: none;
+    }
+}
 
 .tab-item {
     font-size: small;
@@ -43,14 +95,16 @@
 }
 
 .work-group {
-    overflow-x: hidden;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-.work-group-row {
+/* .work-group-row {
     padding: auto auto;
     display: flex;
     gap: 20px;
-}
+} */
 
 .work-group-items {
     background-color: var(--white);
@@ -67,3 +121,8 @@
     margin: 50px;
 }
 
+@media (max-width: 1200px) {
+    .work-group {
+        grid-template-columns: 1fr;
+    }
+}

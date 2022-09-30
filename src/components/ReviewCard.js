@@ -32,13 +32,17 @@ const getStars = (ratings) => {
 
 const ReviewCard = styled.div`
     background-color: ${(props) => props.theme.white};
-    min-width: 300px;
+    min-width: 350px;
     min-height: 350px;
     box-shadow: 10px 10px ${(props) => props.theme.black};
     border-radius: 10px;
     border: 2px solid ${(props) => props.theme.black};
     padding: 20px;
     display: grid;
+
+    @media (max-width: 760px) {
+        min-width: 85%;
+    }
 `;
 
 const getRandomcolor = (props) => {
@@ -54,12 +58,12 @@ const getRandomcolor = (props) => {
 const ReviewCardCompany = styled.div`
     background-color: ${(props) => getRandomcolor(props)};
     box-shadow: 5px 5px ${(props) => props.theme.black};
-    transform: skewY(${(props) => (props.anticlock ? "2deg" : "-2deg")});
+    transform: rotate(${(props) => (props.anticlock ? "2deg" : "-2deg")});
     border-radius: 10px;
     border: 2px solid ${(props) => props.theme.black};
     width: fit-content;
-    padding: 20px 40px 20px 40px;
-    height: 20px;
+    padding: 20px 40px;
+    height: fit-content;
     margin-top: -50px;
 `;
 
