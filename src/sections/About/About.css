@@ -7,28 +7,71 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+    padding: 20px;
 }
 
 .burst-image {
-    position: relative;
-    left: 0;
-    top: -80px;
-    height: 500;
-    width: 500;
+    position: sticky;
+    margin-top: -70px;
+    height: 450px;
+    width: 450px;
+    align-self: flex-start;
 }
 
 .circle-image {
-    width: 350px;
-    height: 350px;
+    width: 450px;
+    height: 450px;
     background-image: url(../../static/img/shweta.png);
     background-repeat: no-repeat;
-    background-size: 400px 400px;
+    background-size: 450px 450px;
     border-radius: 50%;
     align-self: center;
     justify-self: center;
+    align-self: flex-end;
 }
 
 .about-text {
     font-family: "MonumentExtended", sans-serif;
+    font-size: 1.6em;
 }
 
+.about-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 200px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.about-row:nth-child(2) {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 1200px){
+    .about-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .burst-image {
+        width: 300px;
+        height: 300px;
+        background-size: 300px 300px;
+        margin-top: -52px;
+    }
+
+    .circle-image {
+        width: 300px;
+        height: 300px;
+    }
+
+    .about-row:nth-child(2) {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .circle-image {
+        margin-right: -50px;
+    }
+}
