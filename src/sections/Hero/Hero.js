@@ -2,7 +2,6 @@ import "./Hero.css";
 import Marquee from "react-fast-marquee";
 import Button from "../../components/Button";
 import { motion } from "framer-motion";
-import styled from "styled-components";
 import {
     paragraph,
     headline,

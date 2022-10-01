@@ -78,7 +78,7 @@ const Reviews = (props) => {
         setReviewsWidth(
             reviewsRef.current.scrollWidth - reviewsRef.current.offsetWidth
         );
-    });
+    }, [reviewsWidth]);
 
     return (
         <>

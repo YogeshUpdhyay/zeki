@@ -2,7 +2,7 @@ import Tape from "../../components/Tape";
 import SkewedTape from "../../components/SkewedTape";
 import "./About.css";
 
-import { robinImage, shwetaImage } from "../../images";
+import { robinImage } from "../../images";
 
 const BurstImage = () => {
     return (

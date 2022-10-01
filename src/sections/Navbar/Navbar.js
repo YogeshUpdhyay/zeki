@@ -1,11 +1,6 @@
 import "./Navbar.css";
 
-import { Squash as Hamburger } from "hamburger-react";
-import { useState } from "react";
-
 const Navbar = (props) => {
-    const [showMenu, setShowMenu] = useState(false);
-
     return (
         <div className="navbar">
             <div className="logo">

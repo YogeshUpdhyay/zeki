@@ -7,6 +7,8 @@ import greenloremipsum from "./static/img/greenloremipsum.png";
 import yellowloremipsum from "./static/img/yellowloremipsum.png";
 import pinkloremipsum from "./static/img/pinkloremipsum.png";
 import button from "./static/img/button.png";
+import envlopeBottom from "./static/img/envlopebottom.png";
+import envlopeTop from "./static/img/envlopetop.png";
 
 export {
     robinImage,
@@ -18,4 +20,6 @@ export {
     pinkloremipsum,
     greenloremipsum,
     yellowloremipsum,
+    envlopeBottom,
+    envlopeTop,
 };
