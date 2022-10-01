@@ -77,6 +77,7 @@ const ReviewCardRatings = styled.div`
 const ReviewCardText = styled.p`
     text-align: left;
     margin-top: 20px;
+    line-height: 34px;
 `;
 
 const ReviewCardCountry = styled.div`

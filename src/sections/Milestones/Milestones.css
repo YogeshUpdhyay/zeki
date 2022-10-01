@@ -1,0 +1,47 @@
+.milestones-container {
+    background-color: var(--pink);
+    display: grid;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.milestones-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.milestones-card {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: "MonumentExtended";
+    text-align: center;
+}
+
+.milestones-card:nth-child(2) {
+    align-self: flex-start;
+}
+
+.milestones-card-text {
+    font-size: 2em
+}
+
+.milestones-card-img {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (max-width: 760px) {
+    .milestones-row {
+        flex-direction: column;
+        gap: 100px;
+    }
+
+    .milestones-card:nth-child(2) {
+        align-self: center;
+    }
+}

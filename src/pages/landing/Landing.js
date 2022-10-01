@@ -6,12 +6,14 @@ import Contact from "../../sections/Contact/Contact";
 import Footer from "../../sections/Footer/Footer";
 
 import "./Landing.css";
+import Milestones from "../../sections/Milestones/Milestones";
 
 const Landing = (props) => {
     return (
         <>
             <Navbar />
             <Hero />
+            <Milestones />
             <Work />
             <Reviews />
             <Contact />

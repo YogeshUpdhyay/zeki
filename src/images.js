@@ -9,6 +9,10 @@ import pinkloremipsum from "./static/img/pinkloremipsum.png";
 import button from "./static/img/button.png";
 import envlopeBottom from "./static/img/envlopebottom.png";
 import envlopeTop from "./static/img/envlopetop.png";
+import yellowSmallBurst from "./static/img/yellowsmallburst.png";
+import purpleBurst from "./static/img/purpleburst.png";
+import greenStar from "./static/img/greenstar.png";
+import milestone from "./static/img/milestone.png";
 
 export {
     robinImage,
@@ -22,4 +26,8 @@ export {
     yellowloremipsum,
     envlopeBottom,
     envlopeTop,
+    yellowSmallBurst,
+    purpleBurst,
+    greenStar,
+    milestone,
 };
