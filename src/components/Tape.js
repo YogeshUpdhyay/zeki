@@ -4,7 +4,9 @@ import styled from "styled-components";
 const TapeContent = styled.div`
     display: flex;
     align-items: center;
-    gap: ${(props) => props.gap}px;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
 `;
 
 const TapeContainer = styled.div`
@@ -19,30 +21,23 @@ const TapeContainer = styled.div`
     z-index: ${(props) => (props.isUpper ? 2 : 1)};
 `;
 
-const repeatContent = (textContent, svgContent, repeatCount, gap) => {
-    let content = [svgContent];
-
+const repeatContent = (repeatCount, content) => {
+    let children = [];
     for (let index = 0; index < repeatCount - 1; index++) {
-        content.push(textContent);
-        content.push(svgContent);
+        children.push(content);
     }
-
-    content.push(<div style={{ marginRight: gap }}>{textContent}</div>);
-    return content;
 };
 
 const Tape = ({
-    textContent,
-    svgContent,
     color,
-    repeat,
     gap,
     speed,
     backgroundColor,
     rotateBy,
     isUpper,
+    children,
 }) => {
-    var tapeContent = repeatContent(textContent, svgContent, repeat, gap);
+    // var tapeContent = repeatContent(textContent, svgContent, repeat, gap);
     return (
         <TapeContainer
             color={color}
@@ -51,7 +46,7 @@ const Tape = ({
             isUpper={isUpper}
         >
             <Marquee speed={speed} gradient={false}>
-                <TapeContent gap={gap}>{tapeContent}</TapeContent>
+                <TapeContent>{children}</TapeContent>
             </Marquee>
         </TapeContainer>
     );

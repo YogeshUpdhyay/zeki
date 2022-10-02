@@ -1,7 +1,15 @@
 .display {
     font-size: 5em;
+    margin: 10px;
     font-family: "MonumentExtended", sans-serif;
 }
+
+.tape-text {
+    font-size: 6em;
+    font-family: "MonumentExtended", sans-serif;
+    margin: 20px;
+}
+
 
 .highlight-text {
     font-family: "MonumentExtended", sans-serif;
@@ -17,5 +25,9 @@
     .display {
         font-size: 3em;
         font-family: "MonumentExtended", sans-serif;
+    }
+
+    .tape-text {
+        font-size: 5em;
     }
 }

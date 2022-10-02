@@ -13,6 +13,12 @@ import yellowSmallBurst from "./static/img/yellowsmallburst.png";
 import purpleBurst from "./static/img/purpleburst.png";
 import greenStar from "./static/img/greenstar.png";
 import milestone from "./static/img/milestone.png";
+import yellowBurst from "./static/img/yellowburst.png";
+import pinkBigPentagon from "./static/img/pinkbigpentagon.png";
+import purplePentagon from "./static/img/purplepentagon.png";
+import purpleBurstWB from "./static/img/purpleburstwb.png";
+import purpleStar from "./static/img/purplestar.png";
+import yellowStar from "./static/img/yellowstar.png";
 
 export {
     robinImage,
@@ -30,4 +36,10 @@ export {
     purpleBurst,
     greenStar,
     milestone,
+    yellowBurst,
+    pinkBigPentagon,
+    purpleBurstWB,
+    purplePentagon,
+    purpleStar,
+    yellowStar,
 };

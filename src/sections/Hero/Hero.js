@@ -135,7 +135,7 @@ const Hero = (props) => {
                 <h1 className="display">
                     TROUBLE <br /> MAKING <br /> YOUR OWN <br /> WEBSITE?
                 </h1>
-                <Button color="green">
+                <Button color="green" width="175px">
                     <Marquee gradient={false} speed={50} pauseOnHover={true}>
                         <h4 className="buttonText">
                             •&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;

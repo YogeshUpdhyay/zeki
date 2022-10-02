@@ -5,7 +5,7 @@ const Button = styled.button`
         typeof props.theme[props.color] !== "undefined"
             ? props.theme[props.color]
             : props.theme.beige};
-    height: 50px;
+    height: 64px;
     width: ${(props) =>
         typeof props.width !== "undefined" ? props.width : "200px"};
     color: ${(props) => props.theme.black};
