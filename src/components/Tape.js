@@ -6,7 +6,7 @@ const TapeContent = styled.div`
     align-items: center;
     justify-content: center;
     gap: 30px;
-    padding: 10px;
+    overflow: hidden;
 `;
 
 const TapeContainer = styled.div`
@@ -14,36 +14,46 @@ const TapeContainer = styled.div`
         typeof props.theme[props.backgroundColor] !== "undefined"
             ? props.theme[props.backgroundColor]
             : props.theme.white};
-    transform: skewY(${(props) => props.rotateBy}deg);
     border-bottom: 2px solid ${(props) => props.theme.black};
     border-top: 2px solid ${(props) => props.theme.black};
     color: ${(props) => props.theme[props.color] || props.theme.white};
-    z-index: ${(props) => (props.isUpper ? 2 : 1)};
+    overflow: hidden;
+    z-index: ${(props) => props.zIndex};
+    position: ${(props) => props.position || "static"};
+    top: ${(props) => props.top || "auto"};
+    bottom: ${(props) => props.bottom || "auto"};
+    left: ${(props) => props.left || "auto"};
+    right: ${(props) => props.right || "auto"};
+    transform-origin: ${(props) => props.tranformOrigin || "50% 50% 0"};
+    transform: skewY(${(props) => props.rotateBy}deg);
 `;
-
-const repeatContent = (repeatCount, content) => {
-    let children = [];
-    for (let index = 0; index < repeatCount - 1; index++) {
-        children.push(content);
-    }
-};
 
 const Tape = ({
     color,
-    gap,
     speed,
     backgroundColor,
+    zIndex,
+    position,
+    top,
+    bottom,
+    left,
+    right,
+    transformOrigin,
     rotateBy,
-    isUpper,
     children,
 }) => {
-    // var tapeContent = repeatContent(textContent, svgContent, repeat, gap);
     return (
         <TapeContainer
             color={color}
             backgroundColor={backgroundColor}
+            zIndex={zIndex}
+            position={position}
+            top={top}
+            bottom={bottom}
+            left={left}
+            right={right}
+            transformOrigin={transformOrigin}
             rotateBy={rotateBy}
-            isUpper={isUpper}
         >
             <Marquee speed={speed} gradient={false}>
                 <TapeContent>{children}</TapeContent>

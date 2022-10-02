@@ -3,64 +3,35 @@ import Tape from "./Tape";
 
 const SkewedTapeContainer = styled.div`
     position: relative;
+    width: 100%;
 `;
 
 const SkewedTapeWrapper = styled.div`
-    width: 100%;
     position: absolute;
-    top: ${(props) => props.top || 0};
-    left: ${(props) => props.left || 0};
 `;
 
-const SkewedTape = ({
-    firstPosition,
-    secondPosition,
-    svgContent,
-    textContent,
-    gap,
-    repeat,
-    speed,
-    backgroundColor,
-    color,
-    rotateFirstBy,
-    rotateSecondBy,
-    isFirstUpper,
-    isSecondUpper,
-}) => {
+const SkewedTape = ({ firstPosition, secondPosition, children }) => {
     return (
         <SkewedTapeContainer>
-            <SkewedTapeWrapper
-                top={firstPosition.top}
-                left={firstPosition.left}
-            >
+            <SkewedTapeWrapper>
                 <Tape
-                    svgContent={svgContent}
-                    textContent={textContent}
-                    gap={gap}
-                    repeat={repeat}
-                    speed={speed}
-                    backgroundColor={backgroundColor}
-                    color={color}
-                    rotateBy={rotateFirstBy}
-                    isUpper={isFirstUpper}
-                />
+                    backgroundColor={"black"}
+                    speed={100}
+                    rotateBy={3}
+                    position="absolute"
+                >
+                    {children}
+                </Tape>
             </SkewedTapeWrapper>
-            <SkewedTapeWrapper
-                top={secondPosition.top}
-                left={secondPosition.left}
+
+            <Tape
+                backgroundColor={"black"}
+                speed={100}
+                rotateBy={-2}
+                position="absolute"
             >
-                <Tape
-                    svgContent={svgContent}
-                    textContent={textContent}
-                    gap={gap}
-                    repeat={repeat}
-                    speed={speed}
-                    backgroundColor={backgroundColor}
-                    color={color}
-                    rotateBy={rotateSecondBy}
-                    isUpper={isSecondUpper}
-                />
-            </SkewedTapeWrapper>
+                {children}
+            </Tape>
         </SkewedTapeContainer>
     );
 };

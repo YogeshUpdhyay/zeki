@@ -13,6 +13,13 @@
 
 .highlight-text {
     font-family: "MonumentExtended", sans-serif;
+    transform: inherit;
+}
+
+.skewed-tape-img {
+    transform: inherit;
+    height: 30px;
+    width: 30px;
 }
 
 .buttonText {
@@ -20,6 +27,7 @@
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
 }
+
 
 @media (max-width: 1200px) {
     .display {
