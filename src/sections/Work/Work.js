@@ -18,7 +18,13 @@ const WorkTape = () => {
             <h1 className="tape-text">OUR WORK</h1>
             <img height="30px" width="30px" src={purplePentagon} alt="" />
             <h1 className="tape-text">OUR WORK</h1>
-            <img height="30px" width="30px" src={purplePentagon} alt="" />
+            <img
+                style={{ marginRight: 30 }}
+                height="30px"
+                width="30px"
+                src={purplePentagon}
+                alt=""
+            />
         </Tape>
     );
 };

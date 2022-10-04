@@ -2,12 +2,12 @@ import styled from "styled-components";
 import Tape from "./Tape";
 
 const SkewedTapeContainer = styled.div`
-    position: relative;
     width: 100%;
+    overflow-x: hidden;
 `;
 
 const SkewedTapeWrapper = styled.div`
-    position: absolute;
+    position: relative;
 `;
 
 const SkewedTape = ({ firstPosition, secondPosition, children }) => {
@@ -19,19 +19,23 @@ const SkewedTape = ({ firstPosition, secondPosition, children }) => {
                     speed={100}
                     rotateBy={3}
                     position="absolute"
+                    zIndex={3}
                 >
                     {children}
                 </Tape>
             </SkewedTapeWrapper>
 
-            <Tape
-                backgroundColor={"black"}
-                speed={100}
-                rotateBy={-2}
-                position="absolute"
-            >
-                {children}
-            </Tape>
+            <SkewedTapeWrapper>
+                <Tape
+                    backgroundColor={"black"}
+                    speed={100}
+                    rotateBy={-2}
+                    position="absolute"
+                    zIndex={4}
+                >
+                    {children}
+                </Tape>
+            </SkewedTapeWrapper>
         </SkewedTapeContainer>
     );
 };

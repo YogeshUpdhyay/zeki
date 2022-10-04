@@ -11,7 +11,13 @@ const ContactTape = () => {
             <h1 className="tape-text">LET'S TALK</h1>
             <img height="30px" width="30px" src={pinkBigPentagon} alt="" />
             <h1 className="tape-text">LET'S TALK</h1>
-            <img height="30px" width="30px" src={pinkBigPentagon} alt="" />
+            <img
+                style={{ marginRight: 30 }}
+                height="30px"
+                width="30px"
+                src={pinkBigPentagon}
+                alt=""
+            />
         </Tape>
     );
 };

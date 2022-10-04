@@ -1,5 +1,6 @@
-
-
+.about{
+    position: relative;
+}
 .about-section {
     background-color: var(--yellow);
     display: flex;
@@ -8,8 +9,9 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 20px;
+    padding-bottom: 0px;
 }
 
 .burst-image {

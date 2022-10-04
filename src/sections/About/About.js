@@ -1,8 +1,7 @@
 import Tape from "../../components/Tape";
-import SkewedTape from "../../components/SkewedTape";
 import "./About.css";
 
-import { robinImage, yellowBurst, purpleBurstWB } from "../../images";
+import { robinImage, yellowBurst } from "../../images";
 
 const BurstImage = () => {
     return (
@@ -44,26 +43,6 @@ const BurstImage = () => {
     );
 };
 
-const AboutSkewedTape = () => {
-    return (
-        <SkewedTape>
-            <h2 className="highlight-text">WE LOVE DESIGNING WEBSITES</h2>
-            <img className="skewed-tape-img" src={purpleBurstWB} alt="" />
-            <h2 className="highlight-text">WE LOVE DESIGNING WEBSITES</h2>
-            <img className="skewed-tape-img" src={purpleBurstWB} alt="" />
-            <h2 className="highlight-text">WE LOVE DESIGNING WEBSITES</h2>
-            <img className="skewed-tape-img" src={purpleBurstWB} alt="" />
-            <h2 className="highlight-text">WE LOVE DESIGNING WEBSITES</h2>
-            <img
-                style={{ marginRight: 50 }}
-                className="skewed-tape-img"
-                src={purpleBurstWB}
-                alt=""
-            />
-        </SkewedTape>
-    );
-};
-
 const About = (props) => {
     return (
         <section id="about" className="about">
@@ -94,8 +73,6 @@ const About = (props) => {
                     </h2>
                 </div>
             </div>
-
-            <AboutSkewedTape />
         </section>
     );
 };
