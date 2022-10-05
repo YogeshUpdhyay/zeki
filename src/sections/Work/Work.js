@@ -1,4 +1,5 @@
 import Tape from "../../components/Tape";
+import SkewedTape from "../../components/SkewedTape";
 import "./Work.css";
 import WorkCard from "../../components/WorkCard";
 import Button from "../../components/Button";
@@ -8,7 +9,7 @@ import { useState } from "react";
 import fontawesome from "@fortawesome/fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { purplePentagon } from "../../images";
+import { purplePentagon, purpleStar } from "../../images";
 
 const WorkTape = () => {
     return (
@@ -140,6 +141,36 @@ const Work = () => {
                     </Button>
                 </div>
             </div>
+            <SkewedTape
+                speed={50}
+                backgroundColor="black"
+                color="white"
+                rotateFirstBy={2}
+                rotateSecondBy={-5}
+                isFirstUpper={true}
+                isSecondUpper={false}
+            >
+                <h1 className="highlight-text">200+ PROJECTS</h1>
+                <img height="30px" width="30px" src={purpleStar} alt="" />
+                <h1 className="highlight-text">68+ CLIENTS</h1>
+                <img height="30px" width="30px" src={purpleStar} alt="" />
+                <h1 className="highlight-text">5+ YEARS</h1>
+                <img height="30px" width="30px" src={purpleStar} alt="" />
+                <h1 className="highlight-text">4.8+ STAR RATING</h1>
+                <img height="30px" width="30px" src={purpleStar} alt="" />
+                <h1 className="highlight-text">68+ CLIENTS</h1>
+                <img height="30px" width="30px" src={purpleStar} alt="" />
+                <h1 className="highlight-text">5+ YEARS</h1>
+                <img height="30px" width="30px" src={purpleStar} alt="" />
+                <h1 className="highlight-text">4.8+ STAR RATING</h1>
+                <img
+                    style={{ marginRight: 30 }}
+                    height="30px"
+                    width="30px"
+                    src={purpleStar}
+                    alt=""
+                />
+            </SkewedTape>
         </section>
     );
 };

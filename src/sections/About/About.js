@@ -1,7 +1,8 @@
 import Tape from "../../components/Tape";
+import SkewedTape from "../../components/SkewedTape";
 import "./About.css";
 
-import { robinImage, yellowBurst } from "../../images";
+import { robinImage, purpleBurstWB, yellowBurst } from "../../images";
 
 const BurstImage = () => {
     return (
@@ -73,6 +74,29 @@ const About = (props) => {
                     </h2>
                 </div>
             </div>
+
+            <SkewedTape
+                speed={50}
+                backgroundColor="black"
+                color="white"
+                rotateFirstBy={2}
+                rotateSecondBy={-5}
+                isFirstUpper={true}
+                isSecondUpper={false}
+            >
+                <h1 className="highlight-text">WE LOVE DESIGNING WEBSITES</h1>
+                <img height="30px" width="30px" src={purpleBurstWB} alt="" />
+                <h1 className="highlight-text">WE LOVE DESIGNING WEBSITES</h1>
+                <img height="30px" width="30px" src={purpleBurstWB} alt="" />
+                <h1 className="highlight-text">WE LOVE DESIGNING WEBSITES</h1>
+                <img
+                    style={{ marginRight: 30 }}
+                    height="30px"
+                    width="30px"
+                    src={purpleBurstWB}
+                    alt=""
+                />
+            </SkewedTape>
         </section>
     );
 };

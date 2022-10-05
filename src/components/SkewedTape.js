@@ -2,35 +2,51 @@ import styled from "styled-components";
 import Tape from "./Tape";
 
 const SkewedTapeContainer = styled.div`
-    width: 100%;
-    overflow-x: hidden;
+    position: relative;
+    z-index: 2;
 `;
 
 const SkewedTapeWrapper = styled.div`
-    position: relative;
+    width: 100%;
+    position: absolute;
+    top: ${(props) => props.top || 0};
+    left: ${(props) => props.left || 0};
 `;
 
-const SkewedTape = ({ firstPosition, secondPosition, children }) => {
+const SkewedTape = ({
+    speed,
+    backgroundColor,
+    color,
+    rotateFirstBy,
+    rotateSecondBy,
+    children,
+    borderColor,
+    top,
+    left,
+}) => {
     return (
         <SkewedTapeContainer>
-            <SkewedTapeWrapper>
+            <SkewedTapeWrapper top={top} left={left}>
                 <Tape
-                    backgroundColor={"black"}
-                    speed={100}
-                    rotateBy={3}
-                    position="absolute"
+                    speed={speed}
+                    backgroundColor={backgroundColor}
+                    color={color}
+                    rotateBy={rotateFirstBy}
+                    direction="left"
+                    borderColor={borderColor}
                     zIndex={3}
                 >
                     {children}
                 </Tape>
             </SkewedTapeWrapper>
-
-            <SkewedTapeWrapper>
+            <SkewedTapeWrapper top={top} left={left}>
                 <Tape
-                    backgroundColor={"black"}
-                    speed={100}
-                    rotateBy={-2}
-                    position="absolute"
+                    speed={speed}
+                    backgroundColor={backgroundColor}
+                    color={color}
+                    rotateBy={rotateSecondBy}
+                    direction="right"
+                    borderColor={borderColor}
                     zIndex={4}
                 >
                     {children}

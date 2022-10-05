@@ -14,8 +14,10 @@ const TapeContainer = styled.div`
         typeof props.theme[props.backgroundColor] !== "undefined"
             ? props.theme[props.backgroundColor]
             : props.theme.white};
-    border-bottom: 2px solid ${(props) => props.theme.black};
-    border-top: 2px solid ${(props) => props.theme.black};
+    border-bottom: 2px solid
+        ${(props) => props.theme[props.borderColor] || props.theme.black};
+    border-top: 2px solid
+        ${(props) => props.theme[props.borderColor] || props.theme.black};
     color: ${(props) => props.theme[props.color] || props.theme.white};
     overflow: hidden;
     z-index: ${(props) => props.zIndex};
@@ -40,6 +42,8 @@ const Tape = ({
     right,
     transformOrigin,
     rotateBy,
+    direction,
+    borderColor,
     children,
 }) => {
     return (
@@ -54,8 +58,13 @@ const Tape = ({
             right={right}
             transformOrigin={transformOrigin}
             rotateBy={rotateBy}
+            borderColor={borderColor}
         >
-            <Marquee speed={speed} gradient={false}>
+            <Marquee
+                speed={speed}
+                gradient={false}
+                direction={direction || "left"}
+            >
                 <TapeContent>{children}</TapeContent>
             </Marquee>
         </TapeContainer>

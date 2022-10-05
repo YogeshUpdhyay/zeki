@@ -1,6 +1,12 @@
 import Tape from "../../components/Tape";
+import SkewedTape from "../../components/SkewedTape";
 import Button from "../../components/Button";
-import { envlopeBottom, envlopeTop, pinkBigPentagon } from "../../images";
+import {
+    envlopeBottom,
+    envlopeTop,
+    pinkBigPentagon,
+    yellowStar,
+} from "../../images";
 import "./Contact.css";
 
 const ContactTape = () => {
