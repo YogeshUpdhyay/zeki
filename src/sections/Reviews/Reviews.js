@@ -155,15 +155,14 @@ const Reviews = (props) => {
                     </motion.div>
                 </motion.div>
                 <div className="reviews-button">
-                    <Button color="yellow" height="">
+                    <Button color="yellow" height="50px">
                         <Marquee
                             gradient={false}
                             speed={50}
                             pauseOnHover={true}
                         >
                             <h4 className="buttonText">
-                                • VIEW ON FIVERR • VIEW ON FIVERR • VIEW ON
-                                FIVERR • VIEW ON FIVERR
+                                •&nbsp;VIEW&nbsp;ON&nbsp;FIVERR&nbsp;•&nbsp;VIEW&nbsp;ON&nbsp;FIVERR&nbsp;•&nbsp;VIEW&nbsp;ON&nbsp;FIVERR&nbsp;
                             </h4>
                         </Marquee>
                     </Button>

@@ -135,7 +135,7 @@ const Hero = (props) => {
                 <h1 className="display">
                     TROUBLE <br /> MAKING <br /> YOUR OWN <br /> WEBSITE?
                 </h1>
-                <Button color="green" width="175px">
+                <Button color="green" width="175px" height="50px">
                     <Marquee gradient={false} speed={50} pauseOnHover={true}>
                         <h4 className="buttonText">
                             •&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;•&nbsp;GET&nbsp;HELP&nbsp;
@@ -159,6 +159,14 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={headlineConstraints}
+                                    animate={{
+                                        rotate: [0, 10, 0, -10, 0],
+                                        animationDuration: 0.5,
+                                    }}
+                                    whileHover={{
+                                        rotate: [0, 10, 0, -10, 0],
+                                        animationDuration: 0.5,
+                                    }}
                                     ref={headlineRef}
                                     src={headline}
                                     alt=""
@@ -166,6 +174,14 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={paragraphConstraints}
+                                    animate={{
+                                        rotate: [0, 10, 0, -10, 0],
+                                        animationDuration: 0.5,
+                                    }}
+                                    whileHover={{
+                                        rotate: [0, 10, 0, -10, 0],
+                                        animationDuration: 0.5,
+                                    }}
                                     ref={paragraphRef}
                                     src={paragraph}
                                     alt=""
@@ -173,6 +189,14 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={buttonConstraints}
+                                    animate={{
+                                        rotate: [0, 10, 0, -10, 0],
+                                        animationDuration: 0.5,
+                                    }}
+                                    whileHover={{
+                                        rotate: [0, 10, 0, -10, 0],
+                                        animationDuration: 0.5,
+                                    }}
                                     ref={buttonRef}
                                     src={button}
                                     alt=""
@@ -182,6 +206,14 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={imageConstraints}
+                                    animate={{
+                                        rotate: [0, 10, 0, -10, 0],
+                                        animationDuration: 0.5,
+                                    }}
+                                    whileHover={{
+                                        rotate: [0, 10, 0, -10, 0],
+                                        animationDuration: 0.5,
+                                    }}
                                     ref={imageRef}
                                     className="top-play-area-image"
                                     src={image}
@@ -193,6 +225,14 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={yellowlpConstraints}
+                                animate={{
+                                    rotate: [0, 10, 0, -10, 0],
+                                    animationDuration: 0.5,
+                                }}
+                                whileHover={{
+                                    rotate: [0, 10, 0, -10, 0],
+                                    animationDuration: 0.5,
+                                }}
                                 ref={yellowlpRef}
                                 src={yellowloremipsum}
                                 alt=""
@@ -200,6 +240,14 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={greenlpConstraints}
+                                animate={{
+                                    rotate: [0, 10, 0, -10, 0],
+                                    animationDuration: 0.5,
+                                }}
+                                whileHover={{
+                                    rotate: [0, 10, 0, -10, 0],
+                                    animationDuration: 0.5,
+                                }}
                                 ref={greenlpRef}
                                 src={greenloremipsum}
                                 alt=""
@@ -207,6 +255,14 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={pinklpConstraints}
+                                animate={{
+                                    rotate: [0, 10, 0, -10, 0],
+                                    animationDuration: 0.5,
+                                }}
+                                whileHover={{
+                                    rotate: [0, 10, 0, -10, 0],
+                                    animationDuration: 0.5,
+                                }}
                                 ref={pinklpRef}
                                 src={pinkloremipsum}
                                 alt=""

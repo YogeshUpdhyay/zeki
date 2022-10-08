@@ -10,4 +10,25 @@ body {
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+div {
+    cursor: url(./static/svg/cursor.svg), auto;
+}
+
+button {
+    cursor: url(./static/svg/cursorClick.svg), auto;
+}
+
+button > * {
+    cursor: url(./static/svg/cursorClick.svg), auto;
+}
+
+input {
+    cursor: url(./static/svg/inputCursor.svg), auto;
+}
+
+a {
+    all: unset;
 }

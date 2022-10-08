@@ -15,9 +15,10 @@
 
 .tab-row {
     display: flex;
-    gap: 20px;
-    padding: 50px 10px;
+    gap: 50px;
+    padding: 50px;
     justify-content: center;
+    align-items: center;
 }
 
 .dropdown {
@@ -82,16 +83,15 @@
 
 .tab-item {
     font-size: small;
-    padding: 10px;
 }
 
 .tab-item.active {
     background-color: var(--yellow);
     color: var(--black);
     border-radius: 10px;
-    padding: 10px;
     box-shadow: 5px 5px var(--black);
     border: 2px solid var(--black);
+    padding: 20px 0px;
 }
 
 .work-group {

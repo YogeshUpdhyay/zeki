@@ -5,6 +5,7 @@ import WorkCard from "../../components/WorkCard";
 import Button from "../../components/Button";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import Marquee from "react-fast-marquee";
 import { useState } from "react";
 import fontawesome from "@fortawesome/fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -40,7 +41,13 @@ const TabRow = () => {
                     activeTab === "allProjects" ? "tab-item active" : "tab-item"
                 }
             >
-                PROJECTS - ALL PROJECTS
+                {activeTab === "allProjects" ? (
+                    <Marquee gradient={false} speed={50} pauseOnHover={true}>
+                        •&nbsp;ALL&nbsp;PROJECTS&nbsp;
+                    </Marquee>
+                ) : (
+                    <>ALL PROJECTS</>
+                )}
             </div>
             <div
                 onClick={() => setActiveTab("nfts")}
