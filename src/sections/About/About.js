@@ -1,12 +1,9 @@
 import Tape from "../../components/Tape";
-import {
-    SkewedTape,
-    SkewedTapeText,
-    SkewedTapeImage,
-} from "../../components/SkewedTape";
+import SkewedTape from "../../components/SkewedTape";
+import Marquee from "react-fast-marquee";
 import "./About.css";
 
-import { robinImage, purpleBurstWB, yellowBurst } from "../../images";
+import { robinImage, yellowBurst, purpleBurstWB } from "../../images";
 
 const BurstImage = () => {
     return (
@@ -97,28 +94,100 @@ const About = (props) => {
                 </div>
             </div>
 
-            {/* <SkewedTape
-                speed={50}
-                backgroundColor="black"
-                color="white"
-                rotateFirstBy={2}
-                rotateSecondBy={-5}
-                isFirstUpper={true}
-                isSecondUpper={false}
-            >
-                <SkewedTapeText>WE LOVE DESIGNING WEBSITES</SkewedTapeText>
-                <img height="30px" width="30px" src={purpleBurstWB} alt="" />
-                <SkewedTapeText>WE LOVE DESIGNING WEBSITES</SkewedTapeText>
-                <img height="30px" width="30px" src={purpleBurstWB} alt="" />
-                <SkewedTapeText>WE LOVE DESIGNING WEBSITES</SkewedTapeText>
-                <img
-                    style={{ marginRight: 30 }}
-                    height="30px"
-                    width="30px"
-                    src={purpleBurstWB}
-                    alt=""
-                />
-            </SkewedTape> */}
+            <SkewedTape angle="-3deg">
+                <Marquee speed={50} gradient={false}>
+                    <div className="skewed-marquee-content">
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                    </div>
+                </Marquee>
+            </SkewedTape>
+
+            <SkewedTape angle="3deg">
+                <Marquee speed={50} gradient={false} direction="right">
+                    <div className="skewed-marquee-content">
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                        <h1 className="highlight-text">
+                            WE LOVE DESIGNING WEBSITES
+                        </h1>
+                        <img
+                            height="30px"
+                            width="30px"
+                            src={purpleBurstWB}
+                            alt=""
+                        />
+                    </div>
+                </Marquee>
+            </SkewedTape>
         </section>
     );
 };

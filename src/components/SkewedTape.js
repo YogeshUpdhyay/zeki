@@ -1,72 +1,80 @@
 import styled from "styled-components";
-import Tape from "./Tape";
 
 const SkewedTapeContainer = styled.div`
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 60px;
     z-index: 2;
 `;
 
-const SkewedTapeWrapper = styled.div`
+const SkewedTapeBgContainer = styled.div`
     width: 100%;
+    height: 100%;
+    transform: skewY(${(props) => props.angle});
+    background-color: ${(props) =>
+        props.theme[props.backgroundColor] || props.theme.black};
+    border-bottom: 2px solid
+        ${(props) => props.theme[props.borderColor] || props.theme.black};
+    border-top: 2px solid
+        ${(props) => props.theme[props.borderColor] || props.theme.black};
     position: absolute;
-    top: ${(props) => props.top || 0};
-    left: ${(props) => props.left || 0};
+    z-index: 3;
+    display: block;
 `;
 
-const SkewedTapeText = styled.h1`
+const SkewedTapeContentContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    transform: rotate(${(props) => props.angle});
+    transform-origin: ${(props) => props.tranformOrigin || "50% 50% 0"};
+    background-color: ${(props) =>
+        props.theme[props.backgroundColor] || props.theme.black};
+    border-bottom: 2px solid
+        ${(props) => props.theme[props.borderColor] || props.theme.black};
+    border-top: 2px solid
+        ${(props) => props.theme[props.borderColor] || props.theme.black};
+    position: absolute;
+    display: block;
+    z-index: 4;
+    align-items: center;
+    justify-content: center;
     color: ${(props) => props.theme.white};
-    transform: rotate(${(props) => props.rotateBy});
-    font-family: "MonumentExtended", sans-serif;
 `;
 
-const SkewedTapeImage = styled.img`
-    height: 30px;
-    width: 30px;
-    transform: rotate(${(props) => props.rotateBy});
-`;
-
-const SkewedTape = ({
-    speed,
-    backgroundColor,
-    color,
-    rotateFirstBy,
-    rotateSecondBy,
-    children,
-    borderColor,
-    top,
-    left,
-}) => {
+const SkewedTape = (props) => {
+    console.log(props);
     return (
         <SkewedTapeContainer>
-            <SkewedTapeWrapper top={top} left={left}>
-                <Tape
-                    speed={speed}
-                    backgroundColor={backgroundColor}
-                    color={color}
-                    rotateBy={rotateFirstBy}
-                    direction="left"
-                    borderColor={borderColor}
-                    zIndex={3}
-                >
-                    {children}
-                </Tape>
-            </SkewedTapeWrapper>
-            <SkewedTapeWrapper top={top} left={left}>
-                <Tape
-                    speed={speed}
-                    backgroundColor={backgroundColor}
-                    color={color}
-                    rotateBy={rotateSecondBy}
-                    direction="right"
-                    borderColor={borderColor}
-                    zIndex={4}
-                >
-                    {children}
-                </Tape>
-            </SkewedTapeWrapper>
+            <SkewedTapeBgContainer angle={props.angle}></SkewedTapeBgContainer>
+            <SkewedTapeContentContainer
+                angle={props.angle}
+                transformOrigin={props.transformOrigin}
+                borderColor={props.borderColor}
+            >
+                {props.children}
+            </SkewedTapeContentContainer>
         </SkewedTapeContainer>
     );
 };
 
+// const SkewedTape = ({
+//     speed,
+//     backgroundColor,
+//     color,
+//     rotateFirstBy,
+//     rotateSecondBy,
+//     children,
+//     borderColor,
+//     top,
+//     left,
+// }) => {
+//     return (
+//         <SkewedTapeContainer>
+//             <SkewedTapeWrapper>
+
+//             </SkewedTapeWrapper>
+//         </SkewedTapeContainer>
+//     );
+// };
+
 export default SkewedTape;
-export { SkewedTape, SkewedTapeImage, SkewedTapeText };

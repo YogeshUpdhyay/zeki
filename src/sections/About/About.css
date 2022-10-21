@@ -52,6 +52,13 @@
     flex-direction: row-reverse;
 }
 
+.skewed-marquee-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
 @media (max-width: 1200px){
     .about-row {
         flex-direction: column;
