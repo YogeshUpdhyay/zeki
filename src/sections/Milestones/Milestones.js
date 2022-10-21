@@ -20,12 +20,7 @@ const Milestones = (props) => {
                             <br /> WORK
                         </div>
                         <div className="milestones-card-img">
-                            <img
-                                height="40px"
-                                width="40px"
-                                src={yellowSmallBurst}
-                                alt=""
-                            />
+                            <img src={yellowSmallBurst} alt="" />
                         </div>
                     </div>
                     <div className="milestones-card">
@@ -34,12 +29,7 @@ const Milestones = (props) => {
                         </div>
                         <div className="milestones-card-text">FREELANCE</div>
                         <div className="milestones-card-img">
-                            <img
-                                height="40px"
-                                width="40px"
-                                src={purpleBurst}
-                                alt=""
-                            />
+                            <img src={purpleBurst} alt="" />
                         </div>
                     </div>
                     <div className="milestones-card">
@@ -50,16 +40,11 @@ const Milestones = (props) => {
                             MASTERS <br /> IN DESIGN
                         </div>
                         <div className="milestones-card-img">
-                            <img
-                                height="40px"
-                                width="40px"
-                                src={greenStar}
-                                alt=""
-                            />
+                            <img src={greenStar} alt="" />
                         </div>
                     </div>
                 </div>
-                <img width="100%" src={milestone} alt="" />
+                <img className="milestones-bg-image" src={milestone} alt="" />
             </div>
         </section>
     );

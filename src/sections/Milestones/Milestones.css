@@ -1,8 +1,11 @@
 .milestones-container {
     background-color: var(--pink);
     display: grid;
+    justify-content: center;
     padding-top: 100px;
     margin: 0;
+    overflow: hidden;
+    z-index: -2;
 }
 
 .milestones-row {
@@ -10,19 +13,23 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 50px 20px;
+    padding-bottom: 0px;
+    margin-bottom: -100px;
+    z-index: 1;
 }
 
 .milestones-card {
     display: grid;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     font-family: "MonumentExtended";
     text-align: center;
 }
 
 .milestones-card:nth-child(2) {
     align-self: flex-start;
+    gap: 40px;
 }
 
 .milestones-card-text {
@@ -35,6 +42,12 @@
 }
 
 
+.milestones-bg-image {
+    min-width: 800px;
+    max-width: 100%;
+    z-index: 0;
+}
+
 @media (max-width: 760px) {
     .milestones-row {
         flex-direction: column;
@@ -43,5 +56,10 @@
 
     .milestones-card:nth-child(2) {
         align-self: center;
+    }
+
+    .milestones-row {
+        padding-bottom: 50px;
+        margin-bottom: 0px;
     }
 }

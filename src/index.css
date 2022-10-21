@@ -11,6 +11,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  cursor: url(./static/svg/cursor.svg), auto;
+}
+
+a {
+    all: unset;
 }
 
 div {
@@ -29,6 +34,14 @@ input {
     cursor: url(./static/svg/inputCursor.svg), auto;
 }
 
-a {
-    all: unset;
+input > * {
+    cursor: url(./static/svg/inputCursor.svg), auto;
+}
+
+textarea {
+    cursor: url(./static/svg/inputCursor.svg), auto;
+}
+
+textarea > * {
+    cursor: url(./static/svg/inputCursor.svg), auto;
 }

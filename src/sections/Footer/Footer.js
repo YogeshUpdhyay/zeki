@@ -119,7 +119,7 @@ const FooterEndRight = styled.div`
 const Footer = (props) => {
     return (
         <>
-            <SkewedTape
+            {/* <SkewedTape
                 speed={50}
                 backgroundColor="black"
                 color="white"
@@ -150,7 +150,7 @@ const Footer = (props) => {
                     src={yellowStar}
                     alt=""
                 />
-            </SkewedTape>
+            </SkewedTape> */}
             <FooterContainer>
                 <WhiteLogo />
                 <FooterContent>

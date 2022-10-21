@@ -1,5 +1,9 @@
 import Tape from "../../components/Tape";
-import SkewedTape from "../../components/SkewedTape";
+import {
+    SkewedTape,
+    SkewedTapeText,
+    SkewedTapeImage,
+} from "../../components/SkewedTape";
 import "./About.css";
 
 import { robinImage, purpleBurstWB, yellowBurst } from "../../images";
@@ -48,12 +52,30 @@ const About = (props) => {
     return (
         <section id="about" className="about">
             <Tape speed={100} color="black">
-                <h1 className="tape-text">ABOUT US</h1>
-                <img height="30px" width="30px" src={yellowBurst} alt="" />
-                <h1 className="tape-text">ABOUT US</h1>
-                <img height="30px" width="30px" src={yellowBurst} alt="" />
-                <h1 className="tape-text">ABOUT US</h1>
-                <img height="30px" width="30px" src={yellowBurst} alt="" />
+                <h1 className="tape-item tape-text">ABOUT US</h1>
+                <img
+                    className="tape-item"
+                    height="30px"
+                    width="30px"
+                    src={yellowBurst}
+                    alt=""
+                />
+                <h1 className="tape-item tape-text">ABOUT US</h1>
+                <img
+                    className="tape-item"
+                    height="30px"
+                    width="30px"
+                    src={yellowBurst}
+                    alt=""
+                />
+                <h1 className="tape-item tape-text">ABOUT US</h1>
+                <img
+                    className="tape-item"
+                    height="30px"
+                    width="30px"
+                    src={yellowBurst}
+                    alt=""
+                />
             </Tape>
 
             <div className="about-section">
@@ -75,7 +97,7 @@ const About = (props) => {
                 </div>
             </div>
 
-            <SkewedTape
+            {/* <SkewedTape
                 speed={50}
                 backgroundColor="black"
                 color="white"
@@ -84,11 +106,11 @@ const About = (props) => {
                 isFirstUpper={true}
                 isSecondUpper={false}
             >
-                <h1 className="highlight-text">WE LOVE DESIGNING WEBSITES</h1>
+                <SkewedTapeText>WE LOVE DESIGNING WEBSITES</SkewedTapeText>
                 <img height="30px" width="30px" src={purpleBurstWB} alt="" />
-                <h1 className="highlight-text">WE LOVE DESIGNING WEBSITES</h1>
+                <SkewedTapeText>WE LOVE DESIGNING WEBSITES</SkewedTapeText>
                 <img height="30px" width="30px" src={purpleBurstWB} alt="" />
-                <h1 className="highlight-text">WE LOVE DESIGNING WEBSITES</h1>
+                <SkewedTapeText>WE LOVE DESIGNING WEBSITES</SkewedTapeText>
                 <img
                     style={{ marginRight: 30 }}
                     height="30px"
@@ -96,7 +118,7 @@ const About = (props) => {
                     src={purpleBurstWB}
                     alt=""
                 />
-            </SkewedTape>
+            </SkewedTape> */}
         </section>
     );
 };

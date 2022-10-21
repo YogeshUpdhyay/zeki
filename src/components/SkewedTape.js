@@ -13,6 +13,18 @@ const SkewedTapeWrapper = styled.div`
     left: ${(props) => props.left || 0};
 `;
 
+const SkewedTapeText = styled.h1`
+    color: ${(props) => props.theme.white};
+    transform: rotate(${(props) => props.rotateBy});
+    font-family: "MonumentExtended", sans-serif;
+`;
+
+const SkewedTapeImage = styled.img`
+    height: 30px;
+    width: 30px;
+    transform: rotate(${(props) => props.rotateBy});
+`;
+
 const SkewedTape = ({
     speed,
     backgroundColor,
@@ -57,3 +69,4 @@ const SkewedTape = ({
 };
 
 export default SkewedTape;
+export { SkewedTape, SkewedTapeImage, SkewedTapeText };

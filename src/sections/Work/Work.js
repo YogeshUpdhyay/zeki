@@ -10,7 +10,8 @@ import { useState } from "react";
 import fontawesome from "@fortawesome/fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { purplePentagon, purpleStar } from "../../images";
+import { purplePentagon, testProjectMobile } from "../../images";
+import { motion } from "framer-motion";
 
 const WorkTape = () => {
     return (
@@ -37,59 +38,91 @@ const TabRow = () => {
         <div className="tab-row">
             <div
                 onClick={() => setActiveTab("allProjects")}
-                className={
-                    activeTab === "allProjects" ? "tab-item active" : "tab-item"
-                }
+                className="tab-item"
             >
                 {activeTab === "allProjects" ? (
-                    <Marquee gradient={false} speed={50} pauseOnHover={true}>
-                        •&nbsp;ALL&nbsp;PROJECTS&nbsp;
-                    </Marquee>
+                    <Button color="yellow" height="50px" width="175px">
+                        <Marquee gradient={false} speed={50}>
+                            <h4 className="buttonText">
+                                •&nbsp;ALL&nbsp;PROJECTS&nbsp;•&nbsp;ALL&nbsp;PROJECTS&nbsp;•&nbsp;ALL&nbsp;PROJECTS&nbsp;
+                            </h4>
+                        </Marquee>
+                    </Button>
                 ) : (
                     <>ALL PROJECTS</>
                 )}
             </div>
-            <div
-                onClick={() => setActiveTab("nfts")}
-                className={
-                    activeTab === "nfts" ? "tab-item active" : "tab-item"
-                }
-            >
-                NFTs
+            <div onClick={() => setActiveTab("nfts")} className="tab-item">
+                {activeTab === "nfts" ? (
+                    <Button color="yellow" height="50px" width="175px">
+                        <Marquee gradient={false} speed={50}>
+                            <h4 className="buttonText">
+                                •&nbsp;NFTs&nbsp;•&nbsp;NFTs&nbsp;•&nbsp;NFTs&nbsp;•&nbsp;NFTs&nbsp;•&nbsp;NFTs&nbsp;•&nbsp;NFTs&nbsp;
+                            </h4>
+                        </Marquee>
+                    </Button>
+                ) : (
+                    <>NFTs</>
+                )}
             </div>
-            <div
-                onClick={() => setActiveTab("eCommerce")}
-                className={
-                    activeTab === "eCommerce" ? "tab-item active" : "tab-item"
-                }
-            >
-                E-COMMERCE
+            <div onClick={() => setActiveTab("eCommerce")} className="tab-item">
+                {activeTab === "eCommerce" ? (
+                    <Button color="yellow" height="50px" width="175px">
+                        <Marquee gradient={false} speed={50}>
+                            <h4 className="buttonText">
+                                •&nbsp;E-COMMERCE&nbsp;•&nbsp;E-COMMERCE&nbsp;•&nbsp;E-COMMERCE&nbsp;
+                            </h4>
+                        </Marquee>
+                    </Button>
+                ) : (
+                    <>E-COMMERCE</>
+                )}
             </div>
             <div
                 onClick={() => setActiveTab("dashboards")}
-                className={
-                    activeTab === "dashboards" ? "tab-item active" : "tab-item"
-                }
+                className="tab-item"
             >
-                DASHBOARDS
+                {activeTab === "dashboards" ? (
+                    <Button color="yellow" height="50px" width="175px">
+                        <Marquee gradient={false} speed={50}>
+                            <h4 className="buttonText">
+                                •&nbsp;DASHBOARDS&nbsp;•&nbsp;DASHBOARDS&nbsp;•&nbsp;DASHBOARDS&nbsp;
+                            </h4>
+                        </Marquee>
+                    </Button>
+                ) : (
+                    <>DASHBOARDS</>
+                )}
             </div>
-            <div
-                onClick={() => setActiveTab("games")}
-                className={
-                    activeTab === "games" ? "tab-item active" : "tab-item"
-                }
-            >
-                GAMES
+            <div onClick={() => setActiveTab("games")} className="tab-item">
+                {activeTab === "games" ? (
+                    <Button color="yellow" height="50px" width="175px">
+                        <Marquee gradient={false} speed={50}>
+                            <h4 className="buttonText">
+                                •&nbsp;GAMES&nbsp;•&nbsp;GAMES&nbsp;•&nbsp;GAMES&nbsp;
+                            </h4>
+                        </Marquee>
+                    </Button>
+                ) : (
+                    <>GAMES</>
+                )}
             </div>
             <div
                 onClick={() => setActiveTab("mobileInterfaces")}
-                className={
-                    activeTab === "mobileInterfaces"
-                        ? "tab-item active"
-                        : "tab-item"
-                }
+                className="tab-item"
             >
-                MOBILE INTERFACES
+                {activeTab === "mobileInterfaces" ? (
+                    <Button color="yellow" height="50px" width="175px">
+                        <Marquee gradient={false} speed={50}>
+                            <h4 className="buttonText">
+                                •&nbsp;MOBILE INTERFACES&nbsp;•&nbsp;MOBILE
+                                INTERFACES&nbsp;•&nbsp;MOBILE INTERFACES&nbsp;
+                            </h4>
+                        </Marquee>
+                    </Button>
+                ) : (
+                    <>MOBILE INTERFACES</>
+                )}
             </div>
         </div>
     );
@@ -135,7 +168,29 @@ const Work = () => {
                 </div>
 
                 <div className="work-group">
-                    <WorkCard></WorkCard>
+                    <WorkCard>
+                        <motion.img
+                            className="work-card-image"
+                            src={testProjectMobile}
+                            alt=""
+                            whileHover={{
+                                y: [
+                                    "0",
+                                    "0",
+                                    "calc(-100% + 800px)",
+                                    "calc(-100% + 800px)",
+                                    "0",
+                                ],
+                                transition: {
+                                    duration: 2,
+                                    ease: "easeIn",
+                                    times: [0, 0.2, 0.5, 0.8, 1],
+                                    repeat: Infinity,
+                                    repeatDelay: 1,
+                                },
+                            }}
+                        />
+                    </WorkCard>
                     <WorkCard></WorkCard>
                     <WorkCard></WorkCard>
                     <WorkCard></WorkCard>
@@ -148,7 +203,7 @@ const Work = () => {
                     </Button>
                 </div>
             </div>
-            <SkewedTape
+            {/* <SkewedTape
                 speed={50}
                 backgroundColor="black"
                 color="white"
@@ -177,7 +232,7 @@ const Work = () => {
                     src={purpleStar}
                     alt=""
                 />
-            </SkewedTape>
+            </SkewedTape> */}
         </section>
     );
 };

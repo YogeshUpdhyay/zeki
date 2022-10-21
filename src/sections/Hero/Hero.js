@@ -151,7 +151,8 @@ const Hero = (props) => {
                         <span className="dot"></span>
                     </div>
                     <div className="url-bar">
-                        www.zeki.in | click and drag to make your own website
+                        www.pokistudios.in | click and drag to make your own
+                        website
                     </div>
                     <div className="play-area">
                         <div className="top-play-area">
@@ -159,10 +160,10 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={headlineConstraints}
-                                    animate={{
-                                        rotate: [0, 10, 0, -10, 0],
-                                        animationDuration: 0.5,
-                                    }}
+                                    // animate={{
+                                    //     rotate: [0, 10, 0, -10, 0],
+                                    //     animationDuration: 0.5,
+                                    // }}
                                     whileHover={{
                                         rotate: [0, 10, 0, -10, 0],
                                         animationDuration: 0.5,
@@ -174,10 +175,10 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={paragraphConstraints}
-                                    animate={{
-                                        rotate: [0, 10, 0, -10, 0],
-                                        animationDuration: 0.5,
-                                    }}
+                                    // animate={{
+                                    //     rotate: [0, 10, 0, -10, 0],
+                                    //     animationDuration: 0.5,
+                                    // }}
                                     whileHover={{
                                         rotate: [0, 10, 0, -10, 0],
                                         animationDuration: 0.5,
@@ -189,10 +190,10 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={buttonConstraints}
-                                    animate={{
-                                        rotate: [0, 10, 0, -10, 0],
-                                        animationDuration: 0.5,
-                                    }}
+                                    // animate={{
+                                    //     rotate: [0, 10, 0, -10, 0],
+                                    //     animationDuration: 0.5,
+                                    // }}
                                     whileHover={{
                                         rotate: [0, 10, 0, -10, 0],
                                         animationDuration: 0.5,
@@ -206,10 +207,10 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={imageConstraints}
-                                    animate={{
-                                        rotate: [0, 10, 0, -10, 0],
-                                        animationDuration: 0.5,
-                                    }}
+                                    // animate={{
+                                    //     rotate: [0, 10, 0, -10, 0],
+                                    //     animationDuration: 0.5,
+                                    // }}
                                     whileHover={{
                                         rotate: [0, 10, 0, -10, 0],
                                         animationDuration: 0.5,
@@ -225,10 +226,10 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={yellowlpConstraints}
-                                animate={{
-                                    rotate: [0, 10, 0, -10, 0],
-                                    animationDuration: 0.5,
-                                }}
+                                // animate={{
+                                //     rotate: [0, 10, 0, -10, 0],
+                                //     animationDuration: 0.5,
+                                // }}
                                 whileHover={{
                                     rotate: [0, 10, 0, -10, 0],
                                     animationDuration: 0.5,
@@ -240,10 +241,10 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={greenlpConstraints}
-                                animate={{
-                                    rotate: [0, 10, 0, -10, 0],
-                                    animationDuration: 0.5,
-                                }}
+                                // animate={{
+                                //     rotate: [0, 10, 0, -10, 0],
+                                //     animationDuration: 0.5,
+                                // }}
                                 whileHover={{
                                     rotate: [0, 10, 0, -10, 0],
                                     animationDuration: 0.5,
@@ -255,10 +256,10 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={pinklpConstraints}
-                                animate={{
-                                    rotate: [0, 10, 0, -10, 0],
-                                    animationDuration: 0.5,
-                                }}
+                                // animate={{
+                                //     rotate: [0, 10, 0, -10, 0],
+                                //     animationDuration: 0.5,
+                                // }}
                                 whileHover={{
                                     rotate: [0, 10, 0, -10, 0],
                                     animationDuration: 0.5,

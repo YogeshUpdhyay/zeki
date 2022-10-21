@@ -121,7 +121,7 @@ const Reviews = (props) => {
     }, [reviewsWidth]);
 
     return (
-        <>
+        <section id="reviews">
             <div className="review-container">
                 <motion.div ref={reviewsRef} className="reviews">
                     <motion.div
@@ -168,7 +168,7 @@ const Reviews = (props) => {
                     </Button>
                 </div>
             </div>
-        </>
+        </section>
     );
 };
 
