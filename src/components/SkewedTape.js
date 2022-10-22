@@ -3,13 +3,13 @@ import styled from "styled-components";
 const SkewedTapeContainer = styled.div`
     position: absolute;
     width: 100%;
-    height: 60px;
+    height: 80px;
     z-index: 2;
 `;
 
 const SkewedTapeBgContainer = styled.div`
     width: 100%;
-    height: 100%;
+    height: 70px;
     transform: skewY(${(props) => props.angle});
     background-color: ${(props) =>
         props.theme[props.backgroundColor] || props.theme.black};
@@ -20,19 +20,18 @@ const SkewedTapeBgContainer = styled.div`
     position: absolute;
     z-index: 3;
     display: block;
+    overflow: hidden;
 `;
 
 const SkewedTapeContentContainer = styled.div`
     width: 100%;
     height: 100%;
-    transform: rotate(${(props) => props.angle});
+    transform: rotate(${(props) => props.angle})
+        skewY(${(props) => props.angle * -1});
     transform-origin: ${(props) => props.tranformOrigin || "50% 50% 0"};
     background-color: ${(props) =>
         props.theme[props.backgroundColor] || props.theme.black};
-    border-bottom: 2px solid
-        ${(props) => props.theme[props.borderColor] || props.theme.black};
-    border-top: 2px solid
-        ${(props) => props.theme[props.borderColor] || props.theme.black};
+
     position: absolute;
     display: block;
     z-index: 4;
@@ -42,39 +41,19 @@ const SkewedTapeContentContainer = styled.div`
 `;
 
 const SkewedTape = (props) => {
-    console.log(props);
     return (
-        <SkewedTapeContainer>
-            <SkewedTapeBgContainer angle={props.angle}></SkewedTapeBgContainer>
+        <SkewedTapeBgContainer
+            angle={props.angle}
+            borderColor={props.borderColor}
+        >
             <SkewedTapeContentContainer
-                angle={props.angle}
                 transformOrigin={props.transformOrigin}
                 borderColor={props.borderColor}
             >
                 {props.children}
             </SkewedTapeContentContainer>
-        </SkewedTapeContainer>
+        </SkewedTapeBgContainer>
     );
 };
-
-// const SkewedTape = ({
-//     speed,
-//     backgroundColor,
-//     color,
-//     rotateFirstBy,
-//     rotateSecondBy,
-//     children,
-//     borderColor,
-//     top,
-//     left,
-// }) => {
-//     return (
-//         <SkewedTapeContainer>
-//             <SkewedTapeWrapper>
-
-//             </SkewedTapeWrapper>
-//         </SkewedTapeContainer>
-//     );
-// };
 
 export default SkewedTape;

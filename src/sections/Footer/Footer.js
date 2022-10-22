@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SkewedTape from "../../components/SkewedTape";
+import Marquee from "react-fast-marquee";
 import { yellowStar } from "../../images";
 
 const FooterContainer = styled.div`
@@ -119,38 +120,6 @@ const FooterEndRight = styled.div`
 const Footer = (props) => {
     return (
         <>
-            {/* <SkewedTape
-                speed={50}
-                backgroundColor="black"
-                color="white"
-                rotateFirstBy={2}
-                rotateSecondBy={-5}
-                isFirstUpper={true}
-                isSecondUpper={false}
-                borderColor="white"
-                top={"-50px"}
-            >
-                <h1 className="highlight-text">HIT US UP</h1>
-                <img height="30px" width="30px" src={yellowStar} alt="" />
-                <h1 className="highlight-text">HIT US UP</h1>
-                <img height="30px" width="30px" src={yellowStar} alt="" />
-                <h1 className="highlight-text">HIT US UP</h1>
-                <img height="30px" width="30px" src={yellowStar} alt="" />
-                <h1 className="highlight-text">HIT US UP</h1>
-                <img height="30px" width="30px" src={yellowStar} alt="" />
-                <h1 className="highlight-text">HIT US UP</h1>
-                <img height="30px" width="30px" src={yellowStar} alt="" />
-                <h1 className="highlight-text">HIT US UP</h1>
-                <img height="30px" width="30px" src={yellowStar} alt="" />
-                <h1 className="highlight-text">HIT US UP</h1>
-                <img
-                    style={{ marginRight: 30 }}
-                    height="30px"
-                    width="30px"
-                    src={yellowStar}
-                    alt=""
-                />
-            </SkewedTape> */}
             <FooterContainer>
                 <WhiteLogo />
                 <FooterContent>

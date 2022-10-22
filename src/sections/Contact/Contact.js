@@ -1,6 +1,7 @@
 import Tape from "../../components/Tape";
 import SkewedTape from "../../components/SkewedTape";
 import Button from "../../components/Button";
+import Marquee from "react-fast-marquee";
 import {
     envlopeBottom,
     envlopeTop,
@@ -79,6 +80,117 @@ const Contact = (props) => {
                         />
                     </div>
                 </div>
+            </div>
+            <div className="skewed-tape-wrapper-footer">
+                <SkewedTape angle="-3deg" borderColor="white">
+                    <Marquee speed={50} gradient={false}>
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                    </Marquee>
+                </SkewedTape>
+
+                <SkewedTape
+                    angle="3deg"
+                    transformOrigin="right"
+                    borderColor="white"
+                >
+                    <Marquee speed={50} gradient={false} direction="right">
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">HIT US UP</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={yellowStar}
+                            alt=""
+                        />
+                    </Marquee>
+                </SkewedTape>
             </div>
         </section>
     );

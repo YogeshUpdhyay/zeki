@@ -10,7 +10,7 @@ import { useState } from "react";
 import fontawesome from "@fortawesome/fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { purplePentagon, testProjectMobile } from "../../images";
+import { purpleStar, purplePentagon, testProjectMobile } from "../../images";
 import { motion } from "framer-motion";
 
 const WorkTape = () => {
@@ -203,36 +203,114 @@ const Work = () => {
                     </Button>
                 </div>
             </div>
-            {/* <SkewedTape
-                speed={50}
-                backgroundColor="black"
-                color="white"
-                rotateFirstBy={2}
-                rotateSecondBy={-5}
-                isFirstUpper={true}
-                isSecondUpper={false}
-            >
-                <h1 className="highlight-text">200+ PROJECTS</h1>
-                <img height="30px" width="30px" src={purpleStar} alt="" />
-                <h1 className="highlight-text">68+ CLIENTS</h1>
-                <img height="30px" width="30px" src={purpleStar} alt="" />
-                <h1 className="highlight-text">5+ YEARS</h1>
-                <img height="30px" width="30px" src={purpleStar} alt="" />
-                <h1 className="highlight-text">4.8+ STAR RATING</h1>
-                <img height="30px" width="30px" src={purpleStar} alt="" />
-                <h1 className="highlight-text">68+ CLIENTS</h1>
-                <img height="30px" width="30px" src={purpleStar} alt="" />
-                <h1 className="highlight-text">5+ YEARS</h1>
-                <img height="30px" width="30px" src={purpleStar} alt="" />
-                <h1 className="highlight-text">4.8+ STAR RATING</h1>
-                <img
-                    style={{ marginRight: 30 }}
-                    height="30px"
-                    width="30px"
-                    src={purpleStar}
-                    alt=""
-                />
-            </SkewedTape> */}
+
+            <div className="skewed-tape-wrapper">
+                <SkewedTape angle="-3deg">
+                    <Marquee speed={50} gradient={false}>
+                        <h1 className="skewed-tape-text">200+ PROJECTS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">68+ CLIENTS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">5+ YEARS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">200+ PROJECTS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">68+ CLIENTS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">5+ YEARS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                    </Marquee>
+                </SkewedTape>
+
+                <SkewedTape angle="3deg" transformOrigin="right">
+                    <Marquee speed={50} gradient={false} direction="right">
+                        <h1 className="skewed-tape-text">200+ PROJECTS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">68+ CLIENTS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">5+ YEARS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">200+ PROJECTS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">68+ CLIENTS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">5+ YEARS</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                        <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                        <img
+                            className="skewed-tape-img"
+                            src={purpleStar}
+                            alt=""
+                        />
+                    </Marquee>
+                </SkewedTape>
+            </div>
         </section>
     );
 };

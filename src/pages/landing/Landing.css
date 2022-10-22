@@ -15,10 +15,20 @@
     font-family: "MonumentExtended", sans-serif;
 }
 
+.skewed-tape-wrapper-footer {
+    margin-top: -80px;
+}
+.skewed-tape-text {
+    font-family: "MonumentExtended", sans-serif;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 .skewed-tape-img {
-    transform: inherit;
     height: 30px;
     width: 30px;
+    margin-right: 15px;
+    margin-left: 15px
 }
 
 .buttonText {
