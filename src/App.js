@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
-
+import { app as firebaseApp } from "./firebaseConnection";
 import Admin from "./pages/admin/Admin";
 import Landing from "./pages/landing/Landing";
 import "./App.css";

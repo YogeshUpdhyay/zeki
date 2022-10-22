@@ -28,7 +28,7 @@ const WhiteLogo = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
             >
-                <g clip-path="url(#clip0_16_165)">
+                <g clipPath="url(#clip0_16_165)">
                     <path
                         d="M8.41206 28.3824H19.2509V34.3135H0V30.1043L10.2937 15.735H0.47998V9.80386H18.772V14.0069L8.41206 28.3824Z"
                         fill="#FFFFFF"
