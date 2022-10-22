@@ -3,6 +3,11 @@
     src: url(static/fonts/MonumentExtended-Regular.otf);
 }
 
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -24,6 +29,10 @@ div {
 
 button {
     cursor: url(./static/svg/cursorClick.svg), auto;
+}
+
+label {
+    cursor: url(./static/svg/cursor.svg), auto;
 }
 
 button > * {

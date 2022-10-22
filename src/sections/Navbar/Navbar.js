@@ -67,10 +67,10 @@ const Navbar = (props) => {
                     <a href="#about">About</a>
                 </div>
                 <div className="nav-item">
-                    <a href="#work">Projects</a>
+                    <a href="#milestones">Milestones</a>
                 </div>
                 <div className="nav-item">
-                    <a href="#milestones">Milestones</a>
+                    <a href="#work">Projects</a>
                 </div>
                 <div className="nav-item">
                     <a href="#reviews">Reviews</a>

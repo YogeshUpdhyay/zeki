@@ -13,8 +13,8 @@ const Milestones = (props) => {
     return (
         <>
             <div className="skewed-tape-wrapper">
-                <SkewedTape angle="-3deg">
-                    <Marquee speed={50} gradient={false}>
+                <SkewedTape angle="3deg" transformOrigin="right">
+                    <Marquee speed={50} gradient={false} direction="right">
                         <h1 className="skewed-tape-text">
                             WE LOVE DESIGNING WEBSITES
                         </h1>
@@ -57,9 +57,8 @@ const Milestones = (props) => {
                         />
                     </Marquee>
                 </SkewedTape>
-
-                <SkewedTape angle="3deg" transformOrigin="right">
-                    <Marquee speed={50} gradient={false} direction="right">
+                <SkewedTape angle="-3deg">
+                    <Marquee speed={50} gradient={false}>
                         <h1 className="skewed-tape-text">
                             WE LOVE DESIGNING WEBSITES
                         </h1>

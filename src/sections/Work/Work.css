@@ -40,7 +40,7 @@
 .tab-row {
     display: flex;
     gap: 100px;
-    padding: 50px;
+    padding: 100px;
     justify-content: center;
     align-items: center;
 }

@@ -8,6 +8,9 @@
     overflow: hidden;
 }
 
+.cta-button {
+    padding-left: 10px;
+}
 .text-white {
     color: var(--white);
     font-family: "MonumentExtended", sans-serif;
