@@ -9,8 +9,10 @@ import {
 import SkewedTape from "../../components/SkewedTape";
 import Button from "../../components/Button";
 import Marquee from "react-fast-marquee";
+import AppContext from "../../contexts";
 import "./Reviews.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
+import { getValue, fetchAndActivate } from "firebase/remote-config";
 import { motion } from "framer-motion";
 
 const ReviewSkewedTape = () => {
@@ -54,71 +56,30 @@ const ReviewSkewedTape = () => {
 };
 
 const Reviews = (props) => {
+    const appConfig = useContext(AppContext);
     const [reviewsWidth, setReviewsWidth] = useState(0);
-    const [reviews, setReviews] = useState([
-        {
-            companyName: "SLASHERGENO",
-            ratings: 5,
-            text: `The UI that they created is absolutely stunning and
-                way better than our previous design, excellent job!
-                Solid work as usual, have worked several times with
-                him, just very responsive and creative.`,
-            country: "United States",
-        },
-        {
-            companyName: "RYANMOLLAUN",
-            ratings: 5,
-            text: `Robin is very skilled in design and listens 
-            to what your requirements are, taking this into account 
-            with his designs. I was pleasantly surprised and so glad 
-            to have found him as we need long term design help. What a find! Thank you Robin.`,
-            country: "Australia",
-        },
-        {
-            companyName: "SLASHERGENO",
-            ratings: 5,
-            text: `The UI that they created is absolutely stunning and
-                way better than our previous design, excellent job!
-                Solid work as usual, have worked several times with
-                him, just very responsive and creative.`,
-            country: "United States",
-        },
-        {
-            companyName: "RYANMOLLAUN",
-            ratings: 5,
-            text: `Robin is very skilled in design and listens 
-            to what your requirements are, taking this into account 
-            with his designs. I was pleasantly surprised and so glad 
-            to have found him as we need long term design help. What a find! Thank you Robin.`,
-            country: "Australia",
-        },
-        {
-            companyName: "SLASHERGENO",
-            ratings: 5,
-            text: `The UI that they created is absolutely stunning and
-                way better than our previous design, excellent job!
-                Solid work as usual, have worked several times with
-                him, just very responsive and creative.`,
-            country: "United States",
-        },
-        {
-            companyName: "RYANMOLLAUN",
-            ratings: 5,
-            text: `Robin is very skilled in design and listens 
-            to what your requirements are, taking this into account 
-            with his designs. I was pleasantly surprised and so glad 
-            to have found him as we need long term design help. What a find! Thank you Robin.`,
-            country: "Australia",
-        },
-    ]);
+    const [reviews, setReviews] = useState([]);
+    const [isReviewsSet, setIsReviewsSet] = useState(false);
 
     const reviewsRef = useRef();
 
     useEffect(() => {
+        if (!isReviewsSet) {
+            fetchAndActivate(appConfig)
+                .then(() => {
+                    const reviewsSection = JSON.parse(
+                        getValue(appConfig, "reviewsSection")._value
+                    );
+                    setReviews(reviewsSection);
+                    setIsReviewsSet(true);
+                })
+                .catch((error) => console.log(error));
+        }
+
         setReviewsWidth(
             reviewsRef.current.scrollWidth - reviewsRef.current.offsetWidth
         );
-    }, [reviewsWidth]);
+    }, [isReviewsSet]);
 
     return (
         <section id="reviews">

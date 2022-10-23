@@ -1,9 +1,10 @@
 import Tape from "../../components/Tape";
-import SkewedTape from "../../components/SkewedTape";
-import Marquee from "react-fast-marquee";
+import { getValue } from "firebase/remote-config";
+import { useContext, useState, useEffect } from "react";
+import AppContext from "../../contexts";
 import "./About.css";
 
-import { robinImage, yellowBurst, purpleBurstWB } from "../../images";
+import { robinImage, yellowBurst } from "../../images";
 
 const BurstImage = () => {
     return (
@@ -46,6 +47,18 @@ const BurstImage = () => {
 };
 
 const About = (props) => {
+    const appConfig = useContext(AppContext);
+    const [robinHeadline, setRobinHeadline] = useState("HI I AM ROBIN");
+    const [shwetaHeadline, setShwetaHeadline] = useState("HI I AM SHWETA");
+
+    useEffect(() => {
+        const aboutSection = JSON.parse(
+            getValue(appConfig, "aboutSection")._value
+        );
+        setRobinHeadline(aboutSection.robin);
+        setShwetaHeadline(aboutSection.shweta);
+    }, []);
+
     return (
         <section id="about" className="about">
             <Tape speed={100} color="black">
@@ -81,16 +94,12 @@ const About = (props) => {
                         <BurstImage />
                     </div>
 
-                    <h2 className="about-text">
-                        HEY, I AM ROBIN <br />I LOVE TYPEFACES AND FONTS
-                    </h2>
+                    <h2 className="about-text">{robinHeadline}</h2>
                 </div>
 
                 <div className="about-row">
                     <div className="circle-image"></div>
-                    <h2 className="about-text">
-                        HEY, I AM ROBIN <br />I LOVE TYPEFACES AND FONTS
-                    </h2>
+                    <h2 className="about-text">{shwetaHeadline}</h2>
                 </div>
             </div>
         </section>

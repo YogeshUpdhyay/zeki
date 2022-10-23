@@ -1,1 +1,69 @@
-{ "testParam": "Default Config" }
+{
+    "aboutSection": {
+        "robin": "Hey, I AM ROBIN AND I LOVE TYPEFACES & FONTS",
+        "shweta": "Hey, I AM SHWETA AND I LOVE LOREM IPSUM DOLOR"
+    },
+    "workSection": {
+        "allProjects": [],
+        "nfts": [],
+        "eCommerce": [],
+        "dashboards": [],
+        "games": [],
+        "mobileInterfaces": []
+    },
+    "reviewsSection": [
+        {
+            "companyName": "SLASHERGENO",
+            "ratings": 5,
+            "text": "The UI that they created is absolutely stunning and way better than our previous design, excellent job! Solid work as usual, have worked several times with him, just very responsive and creative.",
+            "country": "United States"
+        },
+        {
+            "companyName": "RYANMOLLAUN",
+            "rating": 5,
+            "text": "Robin is very skilled in design and listens to what your requirements are, taking this into account with his designs. I was pleasantly surprised and so glad to have found him as we need long term design help. What a find! Thank you Robin.",
+            "country": "Australia"
+        },
+        {
+            "companyName": "EUNFLUSS",
+            "rating": 5,
+            "text": "It really was better than I expected. In addition to offering their service at an excellent price, the quality of the final product was surprising. I will hire him again for other jobs. I recommend it.",
+            "country": "Argentina"
+        },
+        {
+            "companyName": "alejandrarg13",
+            "rating": 4,
+            "text": "My website design was for an NFT collection and it turned out GREAT. Super happy and pleased!! He did all my revisions and it was what I envisioned.",
+            "country": "United States"
+        },
+        {
+            "companyName": "SLASHERGENO",
+            "ratings": 5,
+            "text": "The UI that they created is absolutely stunning and way better than our previous design, excellent job! Solid work as usual, have worked several times with him, just very responsive and creative.",
+            "country": "United States"
+        },
+        {
+            "companyName": "RYANMOLLAUN",
+            "rating": 5,
+            "text": "Robin is very skilled in design and listens to what your requirements are, taking this into account with his designs. I was pleasantly surprised and so glad to have found him as we need long term design help. What a find! Thank you Robin.",
+            "country": "Australia"
+        },
+        {
+            "companyName": "EUNFLUSS",
+            "rating": 5,
+            "text": "It really was better than I expected. In addition to offering their service at an excellent price, the quality of the final product was surprising. I will hire him again for other jobs. I recommend it.",
+            "country": "Argentina"
+        },
+        {
+            "companyName": "alejandrarg13",
+            "rating": 4,
+            "text": "My website design was for an NFT collection and it turned out GREAT. Super happy and pleased!! He did all my revisions and it was what I envisioned.",
+            "country": "United States"
+        }
+    ],
+    "globalConfig": {
+        "fiverrUrl": "",
+        "emailId": "pokistudios@gmail.com",
+        "phoneNumber": "+91 7738 617 600"
+    }
+}
