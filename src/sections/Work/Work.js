@@ -6,11 +6,13 @@ import Button from "../../components/Button";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import Marquee from "react-fast-marquee";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { getValue } from "firebase/remote-config";
 import fontawesome from "@fortawesome/fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { purpleStar, purplePentagon, testProjectMobile } from "../../images";
+import AppContext from "../../contexts";
 import { motion } from "framer-motion";
 
 const WorkTape = () => {
@@ -128,6 +130,54 @@ const TabRow = () => {
     );
 };
 
+const SkewedWorkTape = () => {
+    return (
+        <div className="skewed-tape-wrapper">
+            <SkewedTape angle="-3deg">
+                <Marquee speed={50} gradient={false}>
+                    <h1 className="skewed-tape-text">200+ PROJECTS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">68+ CLIENTS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">5+ YEARS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">200+ PROJECTS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">68+ CLIENTS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">5+ YEARS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                </Marquee>
+            </SkewedTape>
+
+            <SkewedTape angle="3deg" transformOrigin="right">
+                <Marquee speed={50} gradient={false} direction="right">
+                    <h1 className="skewed-tape-text">200+ PROJECTS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">68+ CLIENTS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">5+ YEARS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">200+ PROJECTS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">68+ CLIENTS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">5+ YEARS</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                    <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                    <img className="skewed-tape-img" src={purpleStar} alt="" />
+                </Marquee>
+            </SkewedTape>
+        </div>
+    );
+};
+
 const Work = () => {
     fontawesome.library.add(faChevronDown, faChevronUp);
     const options = [
@@ -139,6 +189,15 @@ const Work = () => {
         { value: "mobileInterfaces", label: "MOBILE INTERFACES" },
     ];
     const defaultOption = options[0];
+
+    const { appConfig, functions } = useContext(AppContext);
+
+    useEffect(() => {
+        const workSection = JSON.parse(
+            getValue(appConfig, "workSection")._value
+        );
+        console.log(workSection);
+    }, []);
 
     return (
         <section id="work">
@@ -169,26 +228,10 @@ const Work = () => {
 
                 <div className="work-group">
                     <WorkCard>
-                        <motion.img
+                        <img
                             className="work-card-image"
                             src={testProjectMobile}
                             alt=""
-                            whileHover={{
-                                y: [
-                                    "0",
-                                    "0",
-                                    "calc(-100% + 800px)",
-                                    "calc(-100% + 800px)",
-                                    "0",
-                                ],
-                                transition: {
-                                    duration: 2,
-                                    ease: "easeIn",
-                                    times: [0, 0.2, 0.5, 0.8, 1],
-                                    repeat: Infinity,
-                                    repeatDelay: 1,
-                                },
-                            }}
                         />
                     </WorkCard>
                     <WorkCard></WorkCard>
@@ -198,119 +241,17 @@ const Work = () => {
                     <WorkCard></WorkCard>
                 </div>
                 <div className="work-button">
-                    <Button color="beige" width="150px">
+                    <Button
+                        color="beige"
+                        width="150px"
+                        whileTap={{ scale: 0.9 }}
+                    >
                         <h4 className="buttonText">LOAD MORE</h4>
                     </Button>
                 </div>
             </div>
 
-            <div className="skewed-tape-wrapper">
-                <SkewedTape angle="-3deg">
-                    <Marquee speed={50} gradient={false}>
-                        <h1 className="skewed-tape-text">200+ PROJECTS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">68+ CLIENTS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">5+ YEARS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">200+ PROJECTS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">68+ CLIENTS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">5+ YEARS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                    </Marquee>
-                </SkewedTape>
-
-                <SkewedTape angle="3deg" transformOrigin="right">
-                    <Marquee speed={50} gradient={false} direction="right">
-                        <h1 className="skewed-tape-text">200+ PROJECTS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">68+ CLIENTS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">5+ YEARS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">200+ PROJECTS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">68+ CLIENTS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">5+ YEARS</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={purpleStar}
-                            alt=""
-                        />
-                    </Marquee>
-                </SkewedTape>
-            </div>
+            <SkewedWorkTape />
         </section>
     );
 };

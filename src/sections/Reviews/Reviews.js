@@ -116,7 +116,11 @@ const Reviews = (props) => {
                     </motion.div>
                 </motion.div>
                 <div className="reviews-button">
-                    <Button color="yellow" height="50px">
+                    <Button
+                        color="yellow"
+                        height="50px"
+                        whileTap={{ scale: 0.9 }}
+                    >
                         <Marquee
                             gradient={false}
                             speed={50}

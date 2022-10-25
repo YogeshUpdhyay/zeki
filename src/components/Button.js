@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Button = styled.button`
+const Button = styled(motion.button)`
     background-color: ${(props) =>
         typeof props.theme[props.color] !== "undefined"
             ? props.theme[props.color]

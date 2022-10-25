@@ -6,6 +6,7 @@ import "./App.css";
 import { ThemeProvider } from "styled-components";
 import { useState, useEffect } from "react";
 import AppContext from "./contexts";
+import HashLoader from "react-spinners/HashLoader";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -135,7 +136,9 @@ export default function App() {
     return (
         <>
             {isLoading ? (
-                <div>Hello World</div>
+                <div className="loading-spinner">
+                    <HashLoader color="#7894FF" />
+                </div>
             ) : (
                 <AppContext.Provider value={{ appConfig, functions }}>
                     <ThemeProvider theme={theme}>

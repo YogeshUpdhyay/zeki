@@ -136,6 +136,7 @@ const Contact = (props) => {
                             color="purple"
                             width="100%"
                             onClick={handleFormSubmit}
+                            whileTap={{ scale: 0.9 }}
                         >
                             <h4 className="buttonText">SEND</h4>
                         </Button>

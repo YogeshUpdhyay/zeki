@@ -3,7 +3,6 @@ import { getValue } from "firebase/remote-config";
 import { useContext, useState, useEffect } from "react";
 import AppContext from "../../contexts";
 import "./About.css";
-
 import { robinImage, yellowBurst } from "../../images";
 
 const BurstImage = () => {
@@ -48,8 +47,8 @@ const BurstImage = () => {
 
 const About = (props) => {
     const { appConfig, functions } = useContext(AppContext);
-    const [robinHeadline, setRobinHeadline] = useState("HI I AM ROBIN");
-    const [shwetaHeadline, setShwetaHeadline] = useState("HI I AM SHWETA");
+    const [robinHeadline, setRobinHeadline] = useState(["HI I AM ROBIN"]);
+    const [shwetaHeadline, setShwetaHeadline] = useState(["HI I AM SHWETA"]);
 
     useEffect(() => {
         const aboutSection = JSON.parse(
@@ -94,12 +93,28 @@ const About = (props) => {
                         <BurstImage />
                     </div>
 
-                    <h2 className="about-text">{robinHeadline}</h2>
+                    <h2 className="about-text">
+                        {robinHeadline &&
+                            robinHeadline.map((line) => (
+                                <>
+                                    {line}
+                                    <br />
+                                </>
+                            ))}
+                    </h2>
                 </div>
 
                 <div className="about-row">
                     <div className="circle-image"></div>
-                    <h2 className="about-text">{shwetaHeadline}</h2>
+                    <h2 className="about-text">
+                        {shwetaHeadline &&
+                            shwetaHeadline.map((line) => (
+                                <>
+                                    {line}
+                                    <br />
+                                </>
+                            ))}
+                    </h2>
                 </div>
             </div>
         </section>

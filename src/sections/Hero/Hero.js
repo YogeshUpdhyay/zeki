@@ -136,7 +136,12 @@ const Hero = (props) => {
                     TROUBLE <br /> MAKING <br /> YOUR OWN <br /> WEBSITE?
                 </h1>
                 <div className="cta-button">
-                    <Button color="green" width="175px" height="50px">
+                    <Button
+                        color="green"
+                        width="175px"
+                        height="50px"
+                        whileTap={{ scale: 0.9 }}
+                    >
                         <Marquee
                             gradient={false}
                             speed={50}
