@@ -10,6 +10,7 @@ import AppContext from "./contexts";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFunctions } from "firebase/functions";
 import { fetchAndActivate, getRemoteConfig } from "firebase/remote-config";
 
 const theme = {
@@ -35,6 +36,7 @@ const firebaseConfig = {
 
 export default function App() {
     const [appConfig, setAppConfig] = useState({});
+    const [functions, setFunctions] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -43,6 +45,10 @@ export default function App() {
 
         // initialize analytics
         const analytics = getAnalytics(app);
+
+        // functions
+        const functions = getFunctions(app, "asia-south1");
+        setFunctions(functions);
 
         //  Initialize remote config
         const remoteConfig = getRemoteConfig(app);
@@ -131,7 +137,7 @@ export default function App() {
             {isLoading ? (
                 <div>Hello World</div>
             ) : (
-                <AppContext.Provider value={appConfig}>
+                <AppContext.Provider value={{ appConfig, functions }}>
                     <ThemeProvider theme={theme}>
                         <Router>
                             <div>

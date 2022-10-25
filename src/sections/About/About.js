@@ -47,7 +47,7 @@ const BurstImage = () => {
 };
 
 const About = (props) => {
-    const appConfig = useContext(AppContext);
+    const { appConfig, functions } = useContext(AppContext);
     const [robinHeadline, setRobinHeadline] = useState("HI I AM ROBIN");
     const [shwetaHeadline, setShwetaHeadline] = useState("HI I AM SHWETA");
 

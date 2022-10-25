@@ -56,7 +56,7 @@ const ReviewSkewedTape = () => {
 };
 
 const Reviews = (props) => {
-    const appConfig = useContext(AppContext);
+    const { appConfig, functions } = useContext(AppContext);
     const [reviewsWidth, setReviewsWidth] = useState(0);
     const [reviews, setReviews] = useState([]);
     const [isReviewsSet, setIsReviewsSet] = useState(false);

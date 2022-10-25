@@ -9,6 +9,9 @@ import {
     yellowStar,
 } from "../../images";
 import "./Contact.css";
+import AppContext from "../../contexts";
+import { useContext } from "react";
+import { httpsCallable } from "firebase/functions";
 
 const ContactTape = () => {
     return (
@@ -29,38 +32,114 @@ const ContactTape = () => {
     );
 };
 
+const ContactSkewedTape = () => {
+    return (
+        <div className="skewed-tape-wrapper-footer">
+            <SkewedTape angle="-3deg" borderColor="white">
+                <Marquee speed={50} gradient={false}>
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                </Marquee>
+            </SkewedTape>
+
+            <SkewedTape
+                angle="3deg"
+                transformOrigin="right"
+                borderColor="white"
+            >
+                <Marquee speed={50} gradient={false} direction="right">
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <img className="skewed-tape-img" src={yellowStar} alt="" />
+                </Marquee>
+            </SkewedTape>
+        </div>
+    );
+};
+
 const Contact = (props) => {
+    const { appConfig, functions } = useContext(AppContext);
+
+    const handleFormSubmit = () => {
+        const values = {
+            name: document.getElementById("name").value,
+            emailId: document.getElementById("email").value,
+            text: document.getElementById("question").value,
+        };
+        console.log(values);
+        const inquire = httpsCallable(functions, "inquire");
+        console.log(inquire);
+        inquire(values).then((result) => {
+            const data = result.data;
+            if (data.success) {
+                console.log(data.msg);
+            } else {
+                console.log(data.msg);
+            }
+        });
+        console.log("completed");
+    };
+
     return (
         <section id="contact">
             <ContactTape />
             <div className="contact">
                 <div className="contact-form">
-                    <form action="">
-                        <div className="form-group">
-                            <div className="form-element">
-                                <label htmlFor="name">NAME</label>
-                                <input type="text" />
-                            </div>
-                            <div className="form-element">
-                                <label htmlFor="email">EMAIL ADDRESS</label>
-                                <input type="email" name="email" id="email" />
-                            </div>
+                    <div className="form-group">
+                        <div className="form-element">
+                            <label htmlFor="name">NAME</label>
+                            <input type="text" name="name" id="name" />
                         </div>
                         <div className="form-element">
-                            <label htmlFor="question">HOW CAN WE HELP?</label>
-                            <textarea
-                                name="question"
-                                id="question"
-                                cols="30"
-                                rows="10"
-                            ></textarea>
+                            <label htmlFor="email">EMAIL ADDRESS</label>
+                            <input type="email" name="email" id="email" />
                         </div>
-                        <div className="submit-button">
-                            <Button color="purple" width="100%">
-                                <h4 className="buttonText">SEND</h4>
-                            </Button>
-                        </div>
-                    </form>
+                    </div>
+                    <div className="form-element">
+                        <label htmlFor="question">HOW CAN WE HELP?</label>
+                        <textarea
+                            name="question"
+                            id="question"
+                            cols="30"
+                            rows="10"
+                        ></textarea>
+                    </div>
+                    <div className="submit-button">
+                        <Button
+                            color="purple"
+                            width="100%"
+                            onClick={handleFormSubmit}
+                        >
+                            <h4 className="buttonText">SEND</h4>
+                        </Button>
+                    </div>
                 </div>
                 <div className="envelope">
                     <div className="envelope top">
@@ -81,117 +160,7 @@ const Contact = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="skewed-tape-wrapper-footer">
-                <SkewedTape angle="-3deg" borderColor="white">
-                    <Marquee speed={50} gradient={false}>
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                    </Marquee>
-                </SkewedTape>
-
-                <SkewedTape
-                    angle="3deg"
-                    transformOrigin="right"
-                    borderColor="white"
-                >
-                    <Marquee speed={50} gradient={false} direction="right">
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                        <h1 className="skewed-tape-text">HIT US UP</h1>
-                        <img
-                            className="skewed-tape-img"
-                            src={yellowStar}
-                            alt=""
-                        />
-                    </Marquee>
-                </SkewedTape>
-            </div>
+            <ContactSkewedTape />
         </section>
     );
 };
