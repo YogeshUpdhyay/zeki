@@ -1,0 +1,16 @@
+.config-container {
+    max-width: 1400px;
+    height: 100vh;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.side-bar {
+    border-right: 2px solid var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+

@@ -1,8 +1,21 @@
+import { useState } from "react";
+import Login from "../../sections/Login/Login";
+import Config from "../../sections/Config/Config";
 
 const Admin = (props) => {
-    return (
-        <h1>This is the Admin page</h1>
-    )
-}
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-export default Admin
+    const handleLogin = () => {
+        const values = {
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+        };
+        console.log(values);
+        setIsLoggedIn(true);
+    };
+    return (
+        <>{!isLoggedIn ? <Login handleLogin={handleLogin} /> : <Config />}</>
+    );
+};
+
+export default Admin;

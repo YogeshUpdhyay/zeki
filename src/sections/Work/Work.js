@@ -196,7 +196,7 @@ const Work = () => {
         const workSection = JSON.parse(
             getValue(appConfig, "workSection")._value
         );
-        console.log(workSection);
+        console.log("worksection", workSection);
     }, []);
 
     return (
