@@ -12,6 +12,7 @@ import HashLoader from "react-spinners/HashLoader";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFunctions } from "firebase/functions";
+import { getStorage, getStream } from "firebase/storage";
 import { fetchAndActivate, getRemoteConfig } from "firebase/remote-config";
 
 const theme = {
@@ -38,6 +39,7 @@ const firebaseConfig = {
 export default function App() {
     const [appConfig, setAppConfig] = useState({});
     const [functions, setFunctions] = useState();
+    const [storage, setStorage] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -124,6 +126,9 @@ export default function App() {
             },
         };
 
+        const storage = getStorage(app);
+        setStorage(storage);
+
         fetchAndActivate(remoteConfig)
             .then(() => {
                 console.log("remote", remoteConfig);
@@ -140,7 +145,7 @@ export default function App() {
                     <HashLoader color="#7894FF" />
                 </div>
             ) : (
-                <AppContext.Provider value={{ appConfig, functions }}>
+                <AppContext.Provider value={{ appConfig, functions, storage }}>
                     <ThemeProvider theme={theme}>
                         <Router>
                             <div>

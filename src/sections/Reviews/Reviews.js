@@ -56,7 +56,7 @@ const ReviewSkewedTape = () => {
 };
 
 const Reviews = (props) => {
-    const { appConfig, functions } = useContext(AppContext);
+    const { appConfig, functions, storage } = useContext(AppContext);
     const [reviewsWidth, setReviewsWidth] = useState(0);
     const [reviews, setReviews] = useState([]);
     const [isReviewsSet, setIsReviewsSet] = useState(false);
@@ -65,15 +65,11 @@ const Reviews = (props) => {
 
     useEffect(() => {
         if (!isReviewsSet) {
-            fetchAndActivate(appConfig)
-                .then(() => {
-                    const reviewsSection = JSON.parse(
-                        getValue(appConfig, "reviewsSection")._value
-                    );
-                    setReviews(reviewsSection);
-                    setIsReviewsSet(true);
-                })
-                .catch((error) => console.log(error));
+            const reviewsSection = JSON.parse(
+                getValue(appConfig, "reviewsSection")._value
+            );
+            setReviews(reviewsSection);
+            setIsReviewsSet(true);
         }
 
         setReviewsWidth(
@@ -92,7 +88,7 @@ const Reviews = (props) => {
                     >
                         {reviews &&
                             reviews.map((review, index) => (
-                                <ReviewCard>
+                                <ReviewCard key={index}>
                                     <ReviewCardCompany
                                         anticlock={
                                             (index + 1) % 2 === 0 ? true : false

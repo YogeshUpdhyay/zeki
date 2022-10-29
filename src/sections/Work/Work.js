@@ -13,7 +13,7 @@ import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { purpleStar, purplePentagon, testProjectMobile } from "../../images";
 import AppContext from "../../contexts";
-import { motion } from "framer-motion";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
 
 const WorkTape = () => {
     return (
@@ -34,8 +34,7 @@ const WorkTape = () => {
     );
 };
 
-const TabRow = () => {
-    const [activeTab, setActiveTab] = useState("allProjects");
+const TabRow = ({ activeTab, setActiveTab }) => {
     return (
         <div className="tab-row">
             <div
@@ -190,13 +189,32 @@ const Work = () => {
     ];
     const defaultOption = options[0];
 
-    const { appConfig, functions } = useContext(AppContext);
+    const { appConfig, functions, storage } = useContext(AppContext);
+    const [activeTab, setActiveTab] = useState("allProjects");
+    const [allProjects, setAllProjects] = useState();
 
     useEffect(() => {
         const workSection = JSON.parse(
             getValue(appConfig, "workSection")._value
         );
         console.log("worksection", workSection);
+        setAllProjects(workSection.allProjects);
+        console.log(allProjects);
+
+        // const allProjectsRef = ref(storage, "allProjects");
+        // listAll(allProjectsRef)
+        //     .then((res) => {
+        //         const allProjectsUrls = [];
+        //         res.items.forEach((itemRef) => {
+        //             getDownloadURL(itemRef)
+        //                 .then((res) => allProjectsUrls.push(res))
+        //                 .catch((error) => console.log(error));
+        //         });
+        //         console.log(allProjectsUrls);
+        //         setAllProjects(allProjectsUrls);
+        //         console.log(allProjects);
+        //     })
+        //     .catch((error) => console.log(error));
     }, []);
 
     return (
@@ -204,7 +222,7 @@ const Work = () => {
             <WorkTape />
             <div className="work-container">
                 <div className="tab-group">
-                    <TabRow />
+                    <TabRow activeTab={activeTab} setActiveTab={setActiveTab} />
                     <Dropdown
                         options={options}
                         value={defaultOption}
@@ -227,18 +245,21 @@ const Work = () => {
                 </div>
 
                 <div className="work-group">
-                    <WorkCard>
-                        <img
-                            className="work-card-image"
-                            src={testProjectMobile}
-                            alt=""
-                        />
-                    </WorkCard>
+                    {allProjects &&
+                        allProjects.map((url) => (
+                            <WorkCard>
+                                <img
+                                    className="work-card-image"
+                                    src={url}
+                                    alt=""
+                                />
+                            </WorkCard>
+                        ))}
+                    {/* <WorkCard></WorkCard>
                     <WorkCard></WorkCard>
                     <WorkCard></WorkCard>
                     <WorkCard></WorkCard>
-                    <WorkCard></WorkCard>
-                    <WorkCard></WorkCard>
+                    <WorkCard></WorkCard> */}
                 </div>
                 <div className="work-button">
                     <Button

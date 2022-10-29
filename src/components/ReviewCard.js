@@ -11,6 +11,7 @@ const getStars = (ratings) => {
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                key={index}
             >
                 <g clipPath="url(#clip0_55_300)">
                     <path
