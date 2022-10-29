@@ -191,18 +191,18 @@ const Work = () => {
 
     const { appConfig, functions, storage } = useContext(AppContext);
     const [activeTab, setActiveTab] = useState("allProjects");
-    const [allProjects, setAllProjects] = useState();
+    const [workSection, setWorkSection] = useState();
+    // const [tempProjects, setTempProjects] = useState();
 
     useEffect(() => {
         const workSection = JSON.parse(
             getValue(appConfig, "workSection")._value
         );
         console.log("worksection", workSection);
-        setAllProjects(workSection.allProjects);
-        console.log(allProjects);
+        setWorkSection(workSection);
 
-        // const allProjectsRef = ref(storage, "allProjects");
-        // listAll(allProjectsRef)
+        // const nftsRef = ref(storage, "mobileInterfaces");
+        // listAll(nftsRef)
         //     .then((res) => {
         //         const allProjectsUrls = [];
         //         res.items.forEach((itemRef) => {
@@ -211,10 +211,10 @@ const Work = () => {
         //                 .catch((error) => console.log(error));
         //         });
         //         console.log(allProjectsUrls);
-        //         setAllProjects(allProjectsUrls);
-        //         console.log(allProjects);
+        //         setTempProjects(allProjectsUrls);
         //     })
         //     .catch((error) => console.log(error));
+        // console.log("mobileInterfaces", tempProjects);
     }, []);
 
     return (
@@ -225,7 +225,7 @@ const Work = () => {
                     <TabRow activeTab={activeTab} setActiveTab={setActiveTab} />
                     <Dropdown
                         options={options}
-                        value={defaultOption}
+                        value={activeTab}
                         menuClassName="dropdown-menu"
                         arrowClosed={
                             <span>
@@ -238,15 +238,17 @@ const Work = () => {
                             </span>
                         }
                         controlClassName="dropdown-control"
-                        // arrowClassName="dropdown-arrow"
                         placeholderClassName="dropdown-placeholder"
                         className="dropdown"
+                        onChange={(selectedOption) =>
+                            setActiveTab(selectedOption.value)
+                        }
                     />
                 </div>
 
                 <div className="work-group">
-                    {allProjects &&
-                        allProjects.map((url) => (
+                    {workSection &&
+                        workSection[activeTab].map((url) => (
                             <WorkCard>
                                 <img
                                     className="work-card-image"
@@ -255,11 +257,6 @@ const Work = () => {
                                 />
                             </WorkCard>
                         ))}
-                    {/* <WorkCard></WorkCard>
-                    <WorkCard></WorkCard>
-                    <WorkCard></WorkCard>
-                    <WorkCard></WorkCard>
-                    <WorkCard></WorkCard> */}
                 </div>
                 <div className="work-button">
                     <Button
