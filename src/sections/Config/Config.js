@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../../components/Button";
 import "./Config.css";
 
 const Sidebar = (props) => {
@@ -54,16 +55,39 @@ const GlobalConfig = (props) => {
                 <label htmlFor="phoneNumber">Phone Number</label>
                 <input type="text" name="phoneNumber" id="phoneNumber" />
             </div>
+
+            <Button color="green">
+                <h3 className="buttonText">Save Config</h3>
+            </Button>
         </>
     );
 };
 
 const AboutConfig = (props) => {
-    return <></>;
+    return (
+        <>
+            <h1>About Config</h1>
+            <div className="config-element">
+                <label htmlFor="robinHeadline">Robin Headline</label>
+                <input type="text" name="robinHeadline" id="robinHeadline" />
+            </div>
+            <div className="config-element">
+                <label htmlFor="shwetaHeadline">Shweta Headline</label>
+                <input type="text" name="shwetaHeadline" id="shwetaHeadLine" />
+            </div>
+            <Button color="green">
+                <h3 className="buttonText">Save Config</h3>
+            </Button>
+        </>
+    );
 };
 
 const ReviewConfig = (props) => {
-    return <></>;
+    return (
+        <>
+            <h1>Reviews Config</h1>
+        </>
+    );
 };
 
 const WorkConfig = (props) => {
