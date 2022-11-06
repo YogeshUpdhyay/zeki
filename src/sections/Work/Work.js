@@ -187,12 +187,25 @@ const Work = () => {
         { value: "games", label: "GAMES" },
         { value: "mobileInterfaces", label: "MOBILE INTERFACES" },
     ];
-    const defaultOption = options[0];
 
-    const { appConfig, functions, storage } = useContext(AppContext);
+    const appContextData = useContext(AppContext);
+    const appConfig = appContextData.appConfig;
     const [activeTab, setActiveTab] = useState("allProjects");
     const [workSection, setWorkSection] = useState();
     // const [tempProjects, setTempProjects] = useState();
+
+    const handleLoadMoreClick = () => {
+        const workElement = document.getElementById("work-group-container");
+        console.log(workElement);
+
+        workSection[activeTab].slice(7).forEach((url) =>
+            workElement.appendChild(
+                <WorkCard>
+                    <img className="work-card-image" src={url} alt="" />
+                </WorkCard>
+            )
+        );
+    };
 
     useEffect(() => {
         const workSection = JSON.parse(
@@ -246,9 +259,9 @@ const Work = () => {
                     />
                 </div>
 
-                <div className="work-group">
+                <div className="work-group" id="work-group-container">
                     {workSection &&
-                        workSection[activeTab].map((url) => (
+                        workSection[activeTab].slice(0, 7).map((url) => (
                             <WorkCard>
                                 <img
                                     className="work-card-image"
@@ -263,6 +276,7 @@ const Work = () => {
                         color="beige"
                         width="150px"
                         whileTap={{ scale: 0.9 }}
+                        onClick={handleLoadMoreClick}
                     >
                         <h4 className="buttonText">LOAD MORE</h4>
                     </Button>

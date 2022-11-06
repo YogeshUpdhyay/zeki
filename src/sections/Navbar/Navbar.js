@@ -1,9 +1,13 @@
 import "./Navbar.css";
 
-const Navbar = (props) => {
+import AppContext from "../../contexts";
+import { getValue } from "firebase/remote-config";
+import { useContext, useState, useEffect } from "react";
+
+const Logo = (props) => {
     return (
-        <div className="navbar">
-            <div className="logo">
+        <div className="logo">
+            <a href="/">
                 <svg
                     width="106"
                     height="49"
@@ -60,25 +64,35 @@ const Navbar = (props) => {
                         fill="black"
                     />
                 </svg>
-            </div>
+            </a>
+        </div>
+    );
+};
 
-            <div className="nav-group">
-                <div className="nav-item">
-                    <a href="#about">About</a>
-                </div>
-                <div className="nav-item">
-                    <a href="#milestones">Milestones</a>
-                </div>
-                <div className="nav-item">
-                    <a href="#work">Projects</a>
-                </div>
-                <div className="nav-item">
-                    <a href="#reviews">Reviews</a>
-                </div>
+const NavbarItems = (props) => {
+    return (
+        <div className="nav-group">
+            <div className="nav-item">
+                <a href="#about">About</a>
             </div>
+            <div className="nav-item">
+                <a href="#milestones">Milestones</a>
+            </div>
+            <div className="nav-item">
+                <a href="#work">Projects</a>
+            </div>
+            <div className="nav-item">
+                <a href="#reviews">Reviews</a>
+            </div>
+        </div>
+    );
+};
 
-            <div className="nav-contact-group">
-                <div className="nav-contact-item">
+const NavContactGroup = (props) => {
+    return (
+        <div className="nav-contact-group">
+            <div className="nav-contact-item">
+                <a href={props.fiverrUrl} target="_blank" rel="noreferrer">
                     <svg
                         width="32"
                         height="32"
@@ -91,9 +105,11 @@ const Navbar = (props) => {
                             fill="#1A1A1A"
                         />
                     </svg>
-                </div>
+                </a>
+            </div>
 
-                <div className="nav-contact-item">
+            <div className="nav-contact-item">
+                <a href={`mailto:${props.emailId}`}>
                     <svg
                         width="32"
                         height="32"
@@ -106,9 +122,11 @@ const Navbar = (props) => {
                             fill="#1A1A1A"
                         />
                     </svg>
-                </div>
+                </a>
+            </div>
 
-                <div className="nav-contact-item">
+            <div className="nav-contact-item">
+                <a href={`tel:${props.phoneNumber}`}>
                     <svg
                         width="32"
                         height="32"
@@ -121,8 +139,35 @@ const Navbar = (props) => {
                             fill="#1A1A1A"
                         />
                     </svg>
-                </div>
+                </a>
             </div>
+        </div>
+    );
+};
+const Navbar = (props) => {
+    const appContextData = useContext(AppContext);
+    const appConfig = appContextData.appConfig;
+    const [globalConfig, setGlobalConfig] = useState({});
+
+    useEffect(() => {
+        const globalConfig = JSON.parse(
+            getValue(appConfig, "globalConfig")._value
+        );
+        console.log("globaConfig", globalConfig);
+        setGlobalConfig(globalConfig);
+    }, []);
+
+    return (
+        <div className="navbar">
+            <Logo />
+
+            <NavbarItems />
+
+            <NavContactGroup
+                fiverrUrl={globalConfig.fiverrUrl}
+                emailId={globalConfig.emailId}
+                phoneNumber={globalConfig.phoneNumber}
+            />
         </div>
     );
 };

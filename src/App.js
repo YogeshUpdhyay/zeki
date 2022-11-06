@@ -12,7 +12,7 @@ import HashLoader from "react-spinners/HashLoader";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFunctions } from "firebase/functions";
-import { getStorage, getStream } from "firebase/storage";
+import { getStorage } from "firebase/storage";
 import { fetchAndActivate, getRemoteConfig } from "firebase/remote-config";
 
 const theme = {
@@ -131,7 +131,6 @@ export default function App() {
 
         fetchAndActivate(remoteConfig)
             .then(() => {
-                console.log("remote", remoteConfig);
                 setAppConfig(remoteConfig);
                 setIsLoading(false);
             })

@@ -14,6 +14,11 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 const Hero = (props) => {
+    const handleGetHelpClick = () => {
+        const contactElement = document.getElementById("contact");
+        contactElement.scrollIntoView();
+    };
+
     const parentDivref = useRef();
     const headlineRef = useRef();
     const paragraphRef = useRef();
@@ -141,6 +146,7 @@ const Hero = (props) => {
                         width="175px"
                         height="50px"
                         whileTap={{ scale: 0.9 }}
+                        onClick={handleGetHelpClick}
                     >
                         <Marquee
                             gradient={false}
