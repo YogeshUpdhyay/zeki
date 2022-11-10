@@ -215,7 +215,7 @@ const Footer = (props) => {
                     </a>
                 </FooterContent>
                 <FooterEnd>
-                    <p>ALL RIGHTS RESERVED BY ZEKI.IN</p>
+                    <p>ALL RIGHTS RESERVED BY POKISTUDIOS.COM</p>
                     <FooterEndRight>
                         <p>PRIVACY POLICY</p>
                         <p>TERMS AND CONDITIONS</p>

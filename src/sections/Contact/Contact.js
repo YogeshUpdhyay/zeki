@@ -37,21 +37,21 @@ const ContactSkewedTape = () => {
         <div className="skewed-tape-wrapper-footer">
             <SkewedTape angle="-3deg" borderColor="white">
                 <Marquee speed={50} gradient={false}>
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
                 </Marquee>
             </SkewedTape>
@@ -62,21 +62,21 @@ const ContactSkewedTape = () => {
                 borderColor="white"
             >
                 <Marquee speed={50} gradient={false} direction="right">
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
-                    <h1 className="skewed-tape-text">HIT US UP</h1>
+                    <h1 className="skewed-tape-text">POKE US</h1>
                     <img className="skewed-tape-img" src={yellowStar} alt="" />
                 </Marquee>
             </SkewedTape>

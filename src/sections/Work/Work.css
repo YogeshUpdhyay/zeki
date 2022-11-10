@@ -13,7 +13,7 @@
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    transition: all 15s ease-in-out;
+    transition: all 15s;
 }
 
 .work-card-image:hover {

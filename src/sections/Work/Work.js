@@ -140,7 +140,7 @@ const SkewedWorkTape = () => {
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
                     <h1 className="skewed-tape-text">5+ YEARS</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
-                    <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                    <h1 className="skewed-tape-text">5 STAR RATING</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
                     <h1 className="skewed-tape-text">200+ PROJECTS</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
@@ -148,7 +148,7 @@ const SkewedWorkTape = () => {
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
                     <h1 className="skewed-tape-text">5+ YEARS</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
-                    <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                    <h1 className="skewed-tape-text">5 STAR RATING</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
                 </Marquee>
             </SkewedTape>
@@ -161,7 +161,7 @@ const SkewedWorkTape = () => {
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
                     <h1 className="skewed-tape-text">5+ YEARS</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
-                    <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                    <h1 className="skewed-tape-text">5 STAR RATING</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
                     <h1 className="skewed-tape-text">200+ PROJECTS</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
@@ -169,7 +169,7 @@ const SkewedWorkTape = () => {
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
                     <h1 className="skewed-tape-text">5+ YEARS</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
-                    <h1 className="skewed-tape-text">4.8 STAR RATING</h1>
+                    <h1 className="skewed-tape-text">5 STAR RATING</h1>
                     <img className="skewed-tape-img" src={purpleStar} alt="" />
                 </Marquee>
             </SkewedTape>
