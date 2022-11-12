@@ -177,10 +177,10 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={headlineConstraints}
-                                    // animate={{
-                                    //     rotate: [0, 10, 0, -10, 0],
-                                    //     animationDuration: 0.5,
-                                    // }}
+                                    initial={{
+                                        x: 10,
+                                        y: 30,
+                                    }}
                                     whileHover={{
                                         rotate: [0, 10, 0, -10, 0],
                                         animationDuration: 0.5,
@@ -192,10 +192,10 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={paragraphConstraints}
-                                    // animate={{
-                                    //     rotate: [0, 10, 0, -10, 0],
-                                    //     animationDuration: 0.5,
-                                    // }}
+                                    initial={{
+                                        x: -10,
+                                        y: -30,
+                                    }}
                                     whileHover={{
                                         rotate: [0, 10, 0, -10, 0],
                                         animationDuration: 0.5,
@@ -207,10 +207,9 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={buttonConstraints}
-                                    // animate={{
-                                    //     rotate: [0, 10, 0, -10, 0],
-                                    //     animationDuration: 0.5,
-                                    // }}
+                                    initial={{
+                                        x: 50,
+                                    }}
                                     whileHover={{
                                         rotate: [0, 10, 0, -10, 0],
                                         animationDuration: 0.5,
@@ -224,10 +223,10 @@ const Hero = (props) => {
                                 <motion.img
                                     drag
                                     dragConstraints={imageConstraints}
-                                    // animate={{
-                                    //     rotate: [0, 10, 0, -10, 0],
-                                    //     animationDuration: 0.5,
-                                    // }}
+                                    initial={{
+                                        y: 100,
+                                        x: -100,
+                                    }}
                                     whileHover={{
                                         rotate: [0, 10, 0, -10, 0],
                                         animationDuration: 0.5,
@@ -243,10 +242,6 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={yellowlpConstraints}
-                                // animate={{
-                                //     rotate: [0, 10, 0, -10, 0],
-                                //     animationDuration: 0.5,
-                                // }}
                                 whileHover={{
                                     rotate: [0, 10, 0, -10, 0],
                                     animationDuration: 0.5,
@@ -258,10 +253,10 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={greenlpConstraints}
-                                // animate={{
-                                //     rotate: [0, 10, 0, -10, 0],
-                                //     animationDuration: 0.5,
-                                // }}
+                                initial={{
+                                    x: 60,
+                                    y: 40,
+                                }}
                                 whileHover={{
                                     rotate: [0, 10, 0, -10, 0],
                                     animationDuration: 0.5,
@@ -273,10 +268,10 @@ const Hero = (props) => {
                             <motion.img
                                 drag
                                 dragConstraints={pinklpConstraints}
-                                // animate={{
-                                //     rotate: [0, 10, 0, -10, 0],
-                                //     animationDuration: 0.5,
-                                // }}
+                                initial={{
+                                    y: -200,
+                                    x: -40,
+                                }}
                                 whileHover={{
                                     rotate: [0, 10, 0, -10, 0],
                                     animationDuration: 0.5,
