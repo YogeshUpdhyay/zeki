@@ -192,19 +192,23 @@ const Work = () => {
     const appConfig = appContextData.appConfig;
     const [activeTab, setActiveTab] = useState("allProjects");
     const [workSection, setWorkSection] = useState();
-    // const [tempProjects, setTempProjects] = useState();
 
     const handleLoadMoreClick = () => {
         const workElement = document.getElementById("work-group-container");
         console.log(workElement);
+        console.log(workSection[activeTab].slice(6));
+        workSection[activeTab].slice(6).forEach((url) => {
+            var workCard = document.createElement("div");
+            workCard.className = "work-card";
 
-        workSection[activeTab].slice(7).forEach((url) =>
-            workElement.appendChild(
-                <WorkCard>
-                    <img className="work-card-image" src={url} alt="" />
-                </WorkCard>
-            )
-        );
+            var cardImage = document.createElement("img");
+            cardImage.src = url;
+            cardImage.alt = "";
+            cardImage.className = "work-card-image";
+
+            workCard.appendChild(cardImage);
+            workElement.appendChild(workCard);
+        });
     };
 
     useEffect(() => {
@@ -213,21 +217,6 @@ const Work = () => {
         );
         console.log("worksection", workSection);
         setWorkSection(workSection);
-
-        // const nftsRef = ref(storage, "mobileInterfaces");
-        // listAll(nftsRef)
-        //     .then((res) => {
-        //         const allProjectsUrls = [];
-        //         res.items.forEach((itemRef) => {
-        //             getDownloadURL(itemRef)
-        //                 .then((res) => allProjectsUrls.push(res))
-        //                 .catch((error) => console.log(error));
-        //         });
-        //         console.log(allProjectsUrls);
-        //         setTempProjects(allProjectsUrls);
-        //     })
-        //     .catch((error) => console.log(error));
-        // console.log("mobileInterfaces", tempProjects);
     }, []);
 
     return (
@@ -261,14 +250,14 @@ const Work = () => {
 
                 <div className="work-group" id="work-group-container">
                     {workSection &&
-                        workSection[activeTab].slice(0, 7).map((url) => (
-                            <WorkCard>
+                        workSection[activeTab].slice(0, 6).map((url) => (
+                            <div className="work-card">
                                 <img
                                     className="work-card-image"
                                     src={url}
                                     alt=""
                                 />
-                            </WorkCard>
+                            </div>
                         ))}
                 </div>
                 <div className="work-button">

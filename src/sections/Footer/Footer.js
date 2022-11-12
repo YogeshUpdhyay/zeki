@@ -100,7 +100,7 @@ const Container = styled.div`
 
 const FooterContent = styled.div`
     display: flex;
-    padding-top: 50px;
+    padding-top: 80px;
     gap: 50px;
     flex-direction: row;
     justify-content: center;
