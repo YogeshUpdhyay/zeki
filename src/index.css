@@ -1,6 +1,7 @@
 @font-face {
     font-family: "MonumentExtended";
     src: url(static/fonts/MonumentExtended-Regular.otf);
+    -webkit-font-smoothing: antialiased;
 }
 
 
@@ -14,6 +15,7 @@ body {
   padding: 0;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
+  text-rendering: optimizeLegibility; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
