@@ -13,7 +13,7 @@ const FooterContainer = styled.div`
     color: ${(props) => props.theme.white};
     align-items: center;
     padding: 50px;
-    padding-top: 100px;
+    padding-top: 200px;
 `;
 
 const FooterLogo = styled.div`

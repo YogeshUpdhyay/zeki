@@ -10,8 +10,9 @@ import {
 } from "../../images";
 import "./Contact.css";
 import AppContext from "../../contexts";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { httpsCallable } from "firebase/functions";
+import { ClipLoader } from "react-spinners";
 
 const ContactTape = () => {
     return (
@@ -85,28 +86,71 @@ const ContactSkewedTape = () => {
 };
 
 const Contact = (props) => {
-    const { appConfig, functions } = useContext(AppContext);
+    const appContextData = useContext(AppContext);
+    const functions = appContextData.functions;
+    const [isSending, setIsSending] = useState(false);
 
     const handleFormSubmit = () => {
+        setIsSending(true);
+        const nameElement = document.getElementById("name");
+        const emailElement = document.getElementById("email");
+        const questionElement = document.getElementById("question");
+
         const values = {
-            name: document.getElementById("name").value,
-            emailId: document.getElementById("email").value,
-            text: document.getElementById("question").value,
+            name: nameElement.value,
+            emailId: emailElement.value,
+            text: questionElement.value,
         };
+
+        if (!values.name) {
+            nameElement.style.borderColor = "red";
+            setIsSending(false);
+            return;
+        }
+
+        if (!values.emailId) {
+            emailElement.style.borderColor = "red";
+            setIsSending(false);
+            return;
+        }
+
+        if (!values.text) {
+            questionElement.style.borderColor = "red";
+            setIsSending(false);
+            return;
+        }
+
         console.log(values);
         const inquire = httpsCallable(functions, "inquire");
-        console.log(inquire);
-        inquire(values).then((result) => {
-            const data = result.data;
-            if (data.success) {
-                console.log(data.msg);
-            } else {
-                console.log(data.msg);
-            }
-        });
+        inquire(values)
+            .then((result) => {
+                const data = result.data;
+                if (data.success) {
+                    console.log(data.msg);
+                    nameElement.value = "";
+                    emailElement.value = "";
+                    questionElement.value = "";
+                } else {
+                    console.log(data.msg);
+                }
+                setIsSending(false);
+            })
+            .catch((error) => {
+                setIsSending(false);
+                console.log(error);
+            });
         console.log("completed");
     };
 
+    const handleBlur = (e) => {
+        if (!e.target.value) {
+            const element = document.getElementById(e.target.id);
+            element.style.borderColor = "red";
+        } else {
+            const element = document.getElementById(e.target.id);
+            element.style.borderColor = "var(--black)";
+        }
+    };
     return (
         <section id="contact">
             <ContactTape />
@@ -115,11 +159,21 @@ const Contact = (props) => {
                     <div className="form-group">
                         <div className="form-element">
                             <label htmlFor="name">NAME</label>
-                            <input type="text" name="name" id="name" />
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                onBlur={(e) => handleBlur(e)}
+                            />
                         </div>
                         <div className="form-element">
                             <label htmlFor="email">EMAIL ADDRESS</label>
-                            <input type="email" name="email" id="email" />
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                onBlur={(e) => handleBlur(e)}
+                            />
                         </div>
                     </div>
                     <div className="form-element">
@@ -129,17 +183,24 @@ const Contact = (props) => {
                             id="question"
                             cols="30"
                             rows="10"
+                            onBlur={(e) => handleBlur(e)}
                         ></textarea>
                     </div>
                     <div className="submit-button">
-                        <Button
-                            color="purple"
-                            width="100%"
-                            onClick={handleFormSubmit}
-                            whileTap={{ scale: 0.9 }}
-                        >
-                            <h4 className="buttonText">SEND</h4>
-                        </Button>
+                        {isSending ? (
+                            <>
+                                <ClipLoader color="#7894FF" />
+                            </>
+                        ) : (
+                            <Button
+                                color="purple"
+                                width="100%"
+                                onClick={handleFormSubmit}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                <h4 className="buttonText">SEND</h4>
+                            </Button>
+                        )}
                     </div>
                 </div>
                 <div className="envelope">
