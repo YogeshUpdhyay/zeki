@@ -5,6 +5,7 @@ import { yellowStar } from "../../images";
 import AppContext from "../../contexts";
 import { useState, useEffect, useContext } from "react";
 import { getValue } from "firebase/remote-config";
+import "./Footer.css";
 
 const FooterContainer = styled.div`
     background-color: ${(props) => props.theme.black};
@@ -215,10 +216,12 @@ const Footer = (props) => {
                     </a>
                 </FooterContent>
                 <FooterEnd>
-                    <p>ALL RIGHTS RESERVED BY POKISTUDIOS.COM</p>
+                    <p className="bottom-text">
+                        ALL RIGHTS RESERVED BY POKISTUDIOS.COM
+                    </p>
                     <FooterEndRight>
-                        <p>PRIVACY POLICY</p>
-                        <p>TERMS AND CONDITIONS</p>
+                        <p className="bottom-text">PRIVACY POLICY</p>
+                        <p className="bottom-text">TERMS AND CONDITIONS</p>
                     </FooterEndRight>
                 </FooterEnd>
             </FooterContainer>

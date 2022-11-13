@@ -11,9 +11,8 @@ import { getValue } from "firebase/remote-config";
 import fontawesome from "@fortawesome/fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { purpleStar, purplePentagon, testProjectMobile } from "../../images";
+import { purpleStar, purplePentagon } from "../../images";
 import AppContext from "../../contexts";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
 
 const WorkTape = () => {
     return (
@@ -195,11 +194,20 @@ const Work = () => {
 
     const handleLoadMoreClick = () => {
         const workElement = document.getElementById("work-group-container");
-        console.log(workElement);
-        console.log(workSection[activeTab].slice(6));
-        workSection[activeTab].slice(6).forEach((url) => {
+
+        var additionlImages = workSection[activeTab].slice(6);
+        if (activeTab === "mobileInterfaces")
+            additionlImages = workSection[activeTab].slice(8);
+
+        additionlImages.forEach((url) => {
             var workCard = document.createElement("div");
-            workCard.className = "work-card";
+            if (["dashboards", "games"].includes(activeTab)) {
+                workCard.className = "work-card games-dashboards";
+            } else if (activeTab === "mobileInterfaces") {
+                workCard.className = "work-card mob";
+            } else {
+                workCard.className = "work-card";
+            }
 
             var cardImage = document.createElement("img");
             cardImage.src = url;
@@ -247,19 +255,60 @@ const Work = () => {
                         }
                     />
                 </div>
+                {["dashboards", "games"].includes(activeTab) ? (
+                    <div className="work-group" id="work-group-container">
+                        {workSection &&
+                            workSection[activeTab].slice(0, 6).map((url) => (
+                                <div className="work-card games-dashboards">
+                                    <img
+                                        loading="lazy"
+                                        className="work-card-image"
+                                        src={url}
+                                        alt=""
+                                    />
+                                </div>
+                            ))}
+                    </div>
+                ) : (
+                    <></>
+                )}
 
-                <div className="work-group" id="work-group-container">
-                    {workSection &&
-                        workSection[activeTab].slice(0, 6).map((url) => (
-                            <div className="work-card">
-                                <img
-                                    className="work-card-image"
-                                    src={url}
-                                    alt=""
-                                />
-                            </div>
-                        ))}
-                </div>
+                {activeTab === "mobileInterfaces" ? (
+                    <div className="work-group mob" id="work-group-container">
+                        {workSection &&
+                            workSection[activeTab].slice(0, 8).map((url) => (
+                                <div className="work-card mob">
+                                    <img
+                                        loading="lazy"
+                                        className="work-card-image"
+                                        src={url}
+                                        alt=""
+                                    />
+                                </div>
+                            ))}
+                    </div>
+                ) : (
+                    <></>
+                )}
+
+                {["allProjects", "nfts", "eCommerce"].includes(activeTab) ? (
+                    <div className="work-group" id="work-group-container">
+                        {workSection &&
+                            workSection[activeTab].slice(0, 6).map((url) => (
+                                <div className="work-card">
+                                    <img
+                                        loading="lazy"
+                                        className="work-card-image"
+                                        src={url}
+                                        alt=""
+                                    />
+                                </div>
+                            ))}
+                    </div>
+                ) : (
+                    <></>
+                )}
+
                 <div className="work-button">
                     <Button
                         color="beige"

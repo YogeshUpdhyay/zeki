@@ -1,11 +1,27 @@
+/* Worksection */
 .work-container {
     background-color: var(--beige);
     margin: auto auto;
     display: grid;
-    width: 100vw;
     max-width: 100%;
     height: fit-content;
     justify-content: center;
+}
+
+/* work images and grid */
+.work-group {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+    grid-template-rows: auto auto;
+    padding: 2em;
+    max-width: 100%;
+}
+
+.work-group.mob {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .work-card {
@@ -15,8 +31,15 @@
     border-radius: 10px;
     width: 25vw;
     height: 800px;
-    margin: 10px;
-    overflow-y: hidden
+    overflow: hidden
+}
+
+.work-card.mob {
+    width: 20vw
+}
+
+.work-card.games-dashboards {
+    height: 400px;
 }
 
 .work-card-image {
@@ -31,6 +54,45 @@
     object-position: bottom center;
 }
 
+@media (max-width: 1200px) {
+    .work-card {
+        width: 80vw;
+        height: 400px;
+    }
+
+    .work-card.games-dashboards {
+        height: 400px;
+    }
+
+    .work-group {
+        grid-template-columns: 1fr;
+    }
+
+    .work-group.mob {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .work-card {
+        height: 250px;
+    }
+    .work-card.games-dashboards {
+        height: 250px;
+    }
+}
+
+/* work button */
+.work-button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 50px;
+}
+
+
+
+/* Tab css */
 .tab-group {
     justify-content: center;
     display: flex;
@@ -44,6 +106,27 @@
     align-items: center;
 }
 
+.tab-item {
+    font-size: small;
+    cursor: url(../../static/svg/cursorClick.svg), auto;
+}
+
+.tab-item.active {
+    background-color: var(--yellow);
+    color: var(--black);
+    border-radius: 10px;
+    box-shadow: 5px 5px var(--black);
+    border: 2px solid var(--black);
+    padding: 20px 0px;
+}
+
+@media (max-width: 1200px) {
+    .tab-row {
+        display: none;
+    }
+}
+
+/* Dropdown css */
 .dropdown {
     background-color: var(--green);
     color: var(--black);
@@ -92,71 +175,8 @@
     top: 100%;
 }
 
-.work-card-scroll {
-    max-height: 800px;
-}
-
-@media (max-width: 1200px) {
-    .tab-row {
-        display: none;
-    }
-
-    .work-card-scroll {
-        max-height: 400px;
-    }
-
-    .work-card {
-        width: 80vw;
-        height: 400px;
-    }
-}
-
-@media (max-width: 768px) {
-    .work-card-scroll {
-        max-height: 250px;
-    }
-
-    .work-card {
-        height: 250px;
-    }
-}
-
 @media (min-width: 1200px) {
     .dropdown {
         display: none;
-    }
-}
-
-.tab-item {
-    font-size: small;
-    cursor: url(../../static/svg/cursorClick.svg), auto;
-}
-
-.tab-item.active {
-    background-color: var(--yellow);
-    color: var(--black);
-    border-radius: 10px;
-    box-shadow: 5px 5px var(--black);
-    border: 2px solid var(--black);
-    padding: 20px 0px;
-}
-
-.work-group {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 10px;
-}
-
-.work-button {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin: 50px;
-}
-
-@media (max-width: 1200px) {
-    .work-group {
-        grid-template-columns: 1fr;
     }
 }
