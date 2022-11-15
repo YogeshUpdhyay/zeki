@@ -33,11 +33,11 @@ const WorkTape = () => {
     );
 };
 
-const TabRow = ({ activeTab, setActiveTab }) => {
+const TabRow = ({ activeTab, handleTabChange }) => {
     return (
         <div className="tab-row">
             <div
-                onClick={() => setActiveTab("allProjects")}
+                onClick={() => handleTabChange("allProjects")}
                 className="tab-item"
             >
                 {activeTab === "allProjects" ? (
@@ -52,7 +52,7 @@ const TabRow = ({ activeTab, setActiveTab }) => {
                     <>ALL PROJECTS</>
                 )}
             </div>
-            <div onClick={() => setActiveTab("nfts")} className="tab-item">
+            <div onClick={() => handleTabChange("nfts")} className="tab-item">
                 {activeTab === "nfts" ? (
                     <Button color="yellow" height="50px" width="175px">
                         <Marquee gradient={false} speed={50}>
@@ -65,7 +65,10 @@ const TabRow = ({ activeTab, setActiveTab }) => {
                     <>NFTs</>
                 )}
             </div>
-            <div onClick={() => setActiveTab("eCommerce")} className="tab-item">
+            <div
+                onClick={() => handleTabChange("eCommerce")}
+                className="tab-item"
+            >
                 {activeTab === "eCommerce" ? (
                     <Button color="yellow" height="50px" width="175px">
                         <Marquee gradient={false} speed={50}>
@@ -79,7 +82,7 @@ const TabRow = ({ activeTab, setActiveTab }) => {
                 )}
             </div>
             <div
-                onClick={() => setActiveTab("dashboards")}
+                onClick={() => handleTabChange("dashboards")}
                 className="tab-item"
             >
                 {activeTab === "dashboards" ? (
@@ -94,7 +97,7 @@ const TabRow = ({ activeTab, setActiveTab }) => {
                     <>DASHBOARDS</>
                 )}
             </div>
-            <div onClick={() => setActiveTab("games")} className="tab-item">
+            <div onClick={() => handleTabChange("games")} className="tab-item">
                 {activeTab === "games" ? (
                     <Button color="yellow" height="50px" width="175px">
                         <Marquee gradient={false} speed={50}>
@@ -108,7 +111,7 @@ const TabRow = ({ activeTab, setActiveTab }) => {
                 )}
             </div>
             <div
-                onClick={() => setActiveTab("mobileInterfaces")}
+                onClick={() => handleTabChange("mobileInterfaces")}
                 className="tab-item"
             >
                 {activeTab === "mobileInterfaces" ? (
@@ -176,8 +179,7 @@ const SkewedWorkTape = () => {
     );
 };
 
-const Work = () => {
-    fontawesome.library.add(faChevronDown, faChevronUp);
+const TabGroup = ({ activeTab, handleTabChange }) => {
     const options = [
         { value: "allProjects", label: "ALL PROJECTS" },
         { value: "nfts", label: "NFTs" },
@@ -187,36 +189,68 @@ const Work = () => {
         { value: "mobileInterfaces", label: "MOBILE INTERFACES" },
     ];
 
+    return (
+        <div className="tab-group">
+            {/* Tab row */}
+            <TabRow activeTab={activeTab} handleTabChange={handleTabChange} />
+
+            {/* Dropdown */}
+            <Dropdown
+                options={options}
+                value={activeTab}
+                menuClassName="dropdown-menu"
+                arrowClosed={
+                    <span>
+                        <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
+                    </span>
+                }
+                arrowOpen={
+                    <span>
+                        <FontAwesomeIcon icon="fa-solid fa-chevron-up" />
+                    </span>
+                }
+                controlClassName="dropdown-control"
+                placeholderClassName="dropdown-placeholder"
+                className="dropdown"
+                onChange={(selectedOption) =>
+                    handleTabChange(selectedOption.value)
+                }
+            />
+        </div>
+    );
+};
+
+const Work = () => {
+    fontawesome.library.add(faChevronDown, faChevronUp);
+
     const appContextData = useContext(AppContext);
     const appConfig = appContextData.appConfig;
     const [activeTab, setActiveTab] = useState("allProjects");
     const [workSection, setWorkSection] = useState();
+    const [currentCards, setCurrentCards] = useState([]);
 
     const handleLoadMoreClick = () => {
-        const workElement = document.getElementById("work-group-container");
-
-        var additionlImages = workSection[activeTab].slice(6);
-        if (activeTab === "mobileInterfaces")
-            additionlImages = workSection[activeTab].slice(8);
-
-        additionlImages.forEach((url) => {
-            var workCard = document.createElement("div");
-            if (["dashboards", "games"].includes(activeTab)) {
-                workCard.className = "work-card games-dashboards";
-            } else if (activeTab === "mobileInterfaces") {
-                workCard.className = "work-card mob";
-            } else {
-                workCard.className = "work-card";
+        var additionalCards = [];
+        if (
+            activeTab === "mobileInterfaces" &&
+            workSection.mobileInterfaces.length > 8
+        ) {
+            additionalCards = workSection.mobileInterfaces.slice(8);
+        } else {
+            if (workSection[activeTab].length > 6) {
+                additionalCards = workSection[activeTab].slice(6);
             }
+        }
+        setCurrentCards([...currentCards, ...additionalCards]);
+    };
 
-            var cardImage = document.createElement("img");
-            cardImage.src = url;
-            cardImage.alt = "";
-            cardImage.className = "work-card-image";
-
-            workCard.appendChild(cardImage);
-            workElement.appendChild(workCard);
-        });
+    const handleTabChange = (value) => {
+        setActiveTab(value);
+        if (value === "mobileInterfaces") {
+            setCurrentCards(workSection[value].slice(0, 8));
+        } else {
+            setCurrentCards(workSection[value].slice(0, 6));
+        }
     };
 
     useEffect(() => {
@@ -225,59 +259,23 @@ const Work = () => {
         );
         console.log("worksection", workSection);
         setWorkSection(workSection);
+        setCurrentCards(workSection.allProjects.slice(0, 6));
     }, []);
 
     return (
         <section id="work">
             <WorkTape />
             <div className="work-container">
-                <div className="tab-group">
-                    <TabRow activeTab={activeTab} setActiveTab={setActiveTab} />
-                    <Dropdown
-                        options={options}
-                        value={activeTab}
-                        menuClassName="dropdown-menu"
-                        arrowClosed={
-                            <span>
-                                <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
-                            </span>
-                        }
-                        arrowOpen={
-                            <span>
-                                <FontAwesomeIcon icon="fa-solid fa-chevron-up" />
-                            </span>
-                        }
-                        controlClassName="dropdown-control"
-                        placeholderClassName="dropdown-placeholder"
-                        className="dropdown"
-                        onChange={(selectedOption) =>
-                            setActiveTab(selectedOption.value)
-                        }
-                    />
-                </div>
-                {["dashboards", "games"].includes(activeTab) ? (
-                    <div className="work-group" id="work-group-container">
-                        {workSection &&
-                            workSection[activeTab].slice(0, 6).map((url) => (
-                                <div className="work-card games-dashboards">
-                                    <img
-                                        loading="lazy"
-                                        className="work-card-image"
-                                        src={url}
-                                        alt=""
-                                    />
-                                </div>
-                            ))}
-                    </div>
-                ) : (
-                    <></>
-                )}
+                <TabGroup
+                    activeTab={activeTab}
+                    handleTabChange={handleTabChange}
+                />
 
                 {activeTab === "mobileInterfaces" ? (
                     <div className="work-group mob" id="work-group-container">
-                        {workSection &&
-                            workSection[activeTab].slice(0, 8).map((url) => (
-                                <div className="work-card mob">
+                        {currentCards &&
+                            currentCards.map((url, index) => (
+                                <div className="work-card mob" key={index}>
                                     <img
                                         loading="lazy"
                                         className="work-card-image"
@@ -288,25 +286,34 @@ const Work = () => {
                             ))}
                     </div>
                 ) : (
-                    <></>
-                )}
-
-                {["allProjects", "nfts", "eCommerce"].includes(activeTab) ? (
                     <div className="work-group" id="work-group-container">
-                        {workSection &&
-                            workSection[activeTab].slice(0, 6).map((url) => (
-                                <div className="work-card">
-                                    <img
-                                        loading="lazy"
-                                        className="work-card-image"
-                                        src={url}
-                                        alt=""
-                                    />
-                                </div>
-                            ))}
+                        {["dashboards", "games"].includes(activeTab)
+                            ? currentCards &&
+                              currentCards.map((url, index) => (
+                                  <div
+                                      className="work-card games-dashboards"
+                                      key={index}
+                                  >
+                                      <img
+                                          loading="lazy"
+                                          className="work-card-image"
+                                          src={url}
+                                          alt=""
+                                      />
+                                  </div>
+                              ))
+                            : currentCards &&
+                              currentCards.map((url, index) => (
+                                  <div className="work-card" key={index}>
+                                      <img
+                                          loading="lazy"
+                                          className="work-card-image"
+                                          src={url}
+                                          alt=""
+                                      />
+                                  </div>
+                              ))}
                     </div>
-                ) : (
-                    <></>
                 )}
 
                 <div className="work-button">

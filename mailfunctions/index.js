@@ -24,7 +24,7 @@ exports.inquire = functions
 
         const mailOptions = {
             from: '"Poki Studios Inquiry." <noreply@pokistudios.com>',
-            to: gmailEmail,
+            to: "robinpatoliya@gmail.com",
             subject: `You have a new inquiry from ${name}`,
             text: `
             You have a new inquirey from ${name}, 
